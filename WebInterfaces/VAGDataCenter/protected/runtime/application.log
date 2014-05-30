@@ -1,0 +1,278 @@
+2014/05/27 14:49:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('gii')
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=gii
+---
+2014/05/28 13:50:23 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php:336
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('manufacturer')
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=manufacturer
+---
+2014/05/28 13:50:39 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php:336
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('')
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('manufacturer')
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=manufacturer
+---
+2014/05/28 16:32:53 [error] [php] file_put_contents(/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/runtime/gii-1.1.14/CrudCode.php): failed to open stream: Permission denied (/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeModel.php:388)
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeGenerator.php(63): CrudGenerator->prepare()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): CrudGenerator->actionIndex()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(286): CrudGenerator->runAction()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CrudGenerator->runActionWithFilters()
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CrudGenerator->run()
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=gii/crud/index
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 16:33:35 [error] [php] file_put_contents(/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/runtime/gii-1.1.14/CrudCode.php): failed to open stream: Permission denied (/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeModel.php:388)
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeGenerator.php(63): CrudGenerator->prepare()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): CrudGenerator->actionIndex()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(286): CrudGenerator->runAction()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CrudGenerator->runActionWithFilters()
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CrudGenerator->run()
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=gii/crud/index
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 16:34:36 [error] [php] file_put_contents(/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/runtime/gii-1.1.14/CrudCode.php): failed to open stream: Permission denied (/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeModel.php:388)
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeGenerator.php(63): CrudGenerator->prepare()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): CrudGenerator->actionIndex()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(286): CrudGenerator->runAction()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CrudGenerator->runActionWithFilters()
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CrudGenerator->run()
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=gii/crud/index
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 16:35:39 [error] [php] file_put_contents(/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/runtime/gii-1.1.14/CrudCode.php): failed to open stream: Permission denied (/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeModel.php:388)
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/gii/CCodeGenerator.php(63): CrudGenerator->prepare()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): CrudGenerator->actionIndex()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(286): CrudGenerator->runAction()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CrudGenerator->runActionWithFilters()
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CrudGenerator->run()
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=gii/crud/index
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 17:02:52 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1142 DELETE command denied to user 'DataCenter'@'localhost' for table 'Protocols'. The SQL statement executed was: DELETE FROM `Protocols` WHERE `Protocols`.`idProtocols`='1'.
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/ProtocolsController.php (113)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 17:02:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1142 DELETE command denied to user 'DataCenter'@'localhost' for table 'Protocols'. The SQL statement executed was: DELETE FROM `Protocols` WHERE `Protocols`.`idProtocols`='1'' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1802): CDbCommand->execute()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/ProtocolsController.php(113): CActiveRecord->delete()
+#3 [internal function]: ProtocolsController->actionDelete('1')
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProtocolsController), Array)
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProtocolsController), Object(ReflectionMethod), Array)
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1116): CFilterChain->run()
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#18 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('protocols/delet...')
+#19 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?ajax=protocols-grid&id=1&r=protocols%2Fdelete
+HTTP_REFERER=http://138.246.171.73/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=protocols/admin
+---
+2014/05/28 17:03:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "sensor".' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('sensor')
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=sensor
+---
+2014/05/28 17:05:43 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1142 DELETE command denied to user 'DataCenter'@'localhost' for table 'Protocols'. The SQL statement executed was: DELETE FROM `Protocols` WHERE `Protocols`.`idProtocols`='1'.
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/ProtocolsController.php (113)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 17:05:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1142 DELETE command denied to user 'DataCenter'@'localhost' for table 'Protocols'. The SQL statement executed was: DELETE FROM `Protocols` WHERE `Protocols`.`idProtocols`='1'' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1802): CDbCommand->execute()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/ProtocolsController.php(113): CActiveRecord->delete()
+#3 [internal function]: ProtocolsController->actionDelete('1')
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProtocolsController), Array)
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProtocolsController), Object(ReflectionMethod), Array)
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1116): CFilterChain->run()
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#18 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('protocols/delet...')
+#19 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?ajax=protocols-grid&id=1&r=protocols%2Fdelete
+HTTP_REFERER=http://138.246.171.73/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=protocols/admin
+---
+2014/05/28 17:07:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1142 DELETE command denied to user 'DataCenter'@'localhost' for table 'Protocols'. The SQL statement executed was: DELETE FROM `Protocols` WHERE `Protocols`.`idProtocols`='1'.
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/ProtocolsController.php (113)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/28 17:07:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1142 DELETE command denied to user 'DataCenter'@'localhost' for table 'Protocols'. The SQL statement executed was: DELETE FROM `Protocols` WHERE `Protocols`.`idProtocols`='1'' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1802): CDbCommand->execute()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/ProtocolsController.php(113): CActiveRecord->delete()
+#3 [internal function]: ProtocolsController->actionDelete('1')
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(ProtocolsController), Array)
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProtocolsController), Object(ReflectionMethod), Array)
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1116): CFilterChain->run()
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#12 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#16 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('delete')
+#18 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('protocols/delet...')
+#19 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#20 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?ajax=protocols-grid&id=1&r=protocols%2Fdelete
+HTTP_REFERER=http://localhost/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=protocols/admin
+---
+2014/05/30 11:19:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`VAG`.`Orthosis`, CONSTRAINT `fk_Orthosis_Company1` FOREIGN KEY (`Company_idCompany`) REFERENCES `Company` (`idCompany`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Orthosis` (`name`, `descriptions`, `Company_idCompany`) VALUES (:yp0, :yp1, :yp2).
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/OrthosisController.php (73)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/30 11:19:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`VAG`.`Orthosis`, CONSTRAINT `fk_Orthosis_Company1` FOREIGN KEY (`Company_idCompany`) REFERENCES `Company` (`idCompany`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Orthosis` (`name`, `descriptions`, `Company_idCompany`) VALUES (:yp0, :yp1, :yp2)' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/OrthosisController.php(73): CActiveRecord->save()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): OrthosisController->actionCreate()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('orthosis/create')
+#14 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=orthosis/create
+HTTP_REFERER=http://138.246.171.73/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=orthosis/create
+---
+2014/05/30 11:19:54 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`VAG`.`Orthosis`, CONSTRAINT `fk_Orthosis_Company1` FOREIGN KEY (`Company_idCompany`) REFERENCES `Company` (`idCompany`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Orthosis` (`name`, `descriptions`, `Company_idCompany`) VALUES (:yp0, :yp1, :yp2).
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/OrthosisController.php (73)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/05/30 11:19:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`VAG`.`Orthosis`, CONSTRAINT `fk_Orthosis_Company1` FOREIGN KEY (`Company_idCompany`) REFERENCES `Company` (`idCompany`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `Orthosis` (`name`, `descriptions`, `Company_idCompany`) VALUES (:yp0, :yp1, :yp2)' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/CDbCommand.php:358
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(1077): CDbCommand->execute()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/OrthosisController.php(73): CActiveRecord->save()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): OrthosisController->actionCreate()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#13 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('orthosis/create')
+#14 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=orthosis/create
+HTTP_REFERER=http://138.246.171.73/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=orthosis/create
+---
+2014/05/30 16:27:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Oensors".' in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('Oensors')
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=Oensors
+---
+2014/05/30 16:31:26 [error] [php] Invalid argument supplied for foreach() (/home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/helpers/CHtml.php:2078)
+Stack trace:
+#0 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CBaseController.php(126): require()
+#1 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CBaseController.php(95): OrthosisController->renderInternal()
+#2 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(869): OrthosisController->renderFile()
+#3 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/views/orthosis/create.php(18): OrthosisController->renderPartial()
+#4 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CBaseController.php(126): require()
+#5 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CBaseController.php(95): OrthosisController->renderInternal()
+#6 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(869): OrthosisController->renderFile()
+#7 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(782): OrthosisController->renderPartial()
+#8 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/OrthosisController.php(79): OrthosisController->render()
+#9 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/actions/CInlineAction.php(49): OrthosisController->actionCreate()
+#10 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): OrthosisController->runAction()
+#12 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#13 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#14 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): OrthosisController->filterAccessControl()
+#15 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#16 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#17 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CController.php(265): OrthosisController->runActionWithFilters()
+#18 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): OrthosisController->run()
+#19 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#20 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#21 /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/DataCenter/WebInterfaces/VAGDataCenter/index.php?r=orthosis/create
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/models/Orthosis.php (102)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/views/orthosis/_form.php (36)
+in /home/ouss/Documents/workspace/vag/DataCenter/WebInterfaces/VAGDataCenter/protected/views/orthosis/create.php (18)
