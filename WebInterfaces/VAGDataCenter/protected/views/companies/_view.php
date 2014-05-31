@@ -1,12 +1,12 @@
 <?php
-/* @var $this CompanyController */
-/* @var $data Company */
+/* @var $this CompaniesController */
+/* @var $data Companies */
 ?>
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('idCompany')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->idCompany), array('view', 'id'=>$data->idCompany)); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('idCompanies')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->idCompanies), array('view', 'id'=>$data->idCompanies)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>

@@ -1,5 +1,5 @@
 <?php
-/* @var $this CompanyController */
+/* @var $this CompaniesController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Company', 'url'=>array('create')),
-	array('label'=>'Manage Company', 'url'=>array('admin')),
+	array('label'=>'Create Companies', 'url'=>array('create')),
+	array('label'=>'Manage Companies', 'url'=>array('admin')),
 );
 ?>
 

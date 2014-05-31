@@ -25,6 +25,6 @@ $this->menu=array(
 		'name',
 		'type',
 		'descriptions',
-		'Company_idCompany',
+		'Companies_idCompanies',
 	),
 )); ?>

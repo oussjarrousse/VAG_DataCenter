@@ -9,7 +9,7 @@
  * @property string $lastname
  *
  * The followings are the available model relations:
- * @property Company[] $companies
+ * @property Companies[] $companies
  */
 class Contacts extends CActiveRecord
 {
@@ -46,7 +46,7 @@ class Contacts extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'companies' => array(self::HAS_MANY, 'Company', 'Contacts_idContacts'),
+			'companies' => array(self::HAS_MANY, 'Companies', 'Contacts_idContacts'),
 		);
 	}
 

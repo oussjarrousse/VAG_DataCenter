@@ -17,8 +17,8 @@
 	<?php echo CHtml::encode($data->descriptions); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Company_idCompany')); ?>:</b>
-	<?php echo CHtml::encode($data->Company_idCompany); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Companies_idCompanies')); ?>:</b>
+	<?php echo CHtml::encode($data->Companies_idCompanies); ?>
 	<br />
 
 

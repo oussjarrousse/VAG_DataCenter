@@ -48,7 +48,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'idSignalConditioners',
 		'name',
 		'descriptions',
-		'Company_idCompany',
+		'Companies_idCompanies',
 		array(
 			'class'=>'CButtonColumn',
 		),

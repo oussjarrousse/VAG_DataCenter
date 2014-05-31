@@ -1,6 +1,6 @@
 <?php
-/* @var $this CompanyController */
-/* @var $model Company */
+/* @var $this CompaniesController */
+/* @var $model Companies */
 
 $this->breadcrumbs=array(
 	'Companies'=>array('index'),
@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Company', 'url'=>array('index')),
-	array('label'=>'Create Company', 'url'=>array('create')),
+	array('label'=>'List Companies', 'url'=>array('index')),
+	array('label'=>'Create Companies', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#company-grid').yiiGridView('update', {
+	$('#companies-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -41,11 +41,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'company-grid',
+	'id'=>'companies-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'idCompany',
+		'idCompanies',
 		'name',
 		'website',
 		'descriptions',

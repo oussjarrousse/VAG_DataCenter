@@ -24,6 +24,6 @@ $this->menu=array(
 		'idSignalConditioners',
 		'name',
 		'descriptions',
-		'Company_idCompany',
+		'Companies_idCompanies',
 	),
 )); ?>

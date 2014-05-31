@@ -8,10 +8,10 @@
  * @property string $name
  * @property string $type
  * @property string $descriptions
- * @property string $Company_idCompany
+ * @property string $Companies_idCompanies
  *
  * The followings are the available model relations:
- * @property Company $companyIdCompany
+ * @property Companies $companiesIdCompanies
  * @property SignalAcquisition[] $signalAcquisitions
  */
 class Sensors extends CActiveRecord
@@ -32,15 +32,15 @@ class Sensors extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, type, descriptions, Company_idCompany', 'required'),
+			array('name, type, descriptions, Companies_idCompanies', 'required'),
 			array('name, type', 'length', 'max'=>45),
 			array('descriptions', 'length', 'max'=>256),
 			array('name, type, descriptions', 'filter', 'filter'=>'trim'),
 			array('name, type, descriptions', 'filter', 'filter'=>'strip_tags'),
-			array('Company_idCompany', 'numerical', 'integerOnly'=>true),
+			array('Companies_idCompanies', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idSensors, name, type, descriptions, Company_idCompany', 'safe', 'on'=>'search'),
+			array('idSensors, name, type, descriptions, Companies_idCompanies', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +52,7 @@ class Sensors extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'companyIdCompany' => array(self::BELONGS_TO, 'Company', 'Company_idCompany'),
+			'companiesIdCompanies' => array(self::BELONGS_TO, 'Companies', 'Companies_idCompanies'),
 			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Sensors_idSensors'),
 		);
 	}
@@ -67,7 +67,7 @@ class Sensors extends CActiveRecord
 			'name' => 'Name',
 			'type' => 'Type',
 			'descriptions' => 'Descriptions',
-			'Company_idCompany' => 'Company Id Company',
+			'Companies_idCompanies' => 'Companies Id Companies',
 		);
 	}
 
@@ -93,7 +93,7 @@ class Sensors extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('type',$this->type,true);
 		$criteria->compare('descriptions',$this->descriptions,true);
-		$criteria->compare('Company_idCompany',$this->Company_idCompany,true);
+		$criteria->compare('Companies_idCompanies',$this->Companies_idCompanies,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

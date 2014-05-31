@@ -32,9 +32,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'Company_idCompany'); ?>
-		<?php echo $form->textField($model,'Company_idCompany',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'Company_idCompany'); ?>
+		<?php echo $form->labelEx($model,'Companies_idCompanies'); ?>
+		<?php echo $form->textField($model,'Companies_idCompanies',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'Companies_idCompanies'); ?>
 	</div>
 
 	<div class="row buttons">

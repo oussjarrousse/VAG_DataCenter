@@ -24,6 +24,6 @@ $this->menu=array(
 		'idOrthosis',
 		'name',
 		'descriptions',
-		'Company_idCompany',
+		'Companies_idCompanies',
 	),
 )); ?>

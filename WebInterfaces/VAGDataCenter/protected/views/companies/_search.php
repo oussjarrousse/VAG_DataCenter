@@ -1,6 +1,6 @@
 <?php
-/* @var $this CompanyController */
-/* @var $model Company */
+/* @var $this CompaniesController */
+/* @var $model Companies */
 /* @var $form CActiveForm */
 ?>
 
@@ -12,8 +12,8 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'idCompany'); ?>
-		<?php echo $form->textField($model,'idCompany',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'idCompanies'); ?>
+		<?php echo $form->textField($model,'idCompanies',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row">

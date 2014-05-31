@@ -7,10 +7,10 @@
  * @property string $idOrthosis
  * @property string $name
  * @property string $descriptions
- * @property string $Company_idCompany
+ * @property string $Companies_idCompanies
  *
  * The followings are the available model relations:
- * @property Company $companyIdCompany
+ * @property Companies $companiesIdCompanies
  * @property SignalAcquisition[] $signalAcquisitions
  */
 class Orthosis extends CActiveRecord
@@ -31,15 +31,15 @@ class Orthosis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, descriptions, Company_idCompany', 'required'),
+			array('name, descriptions, Companies_idCompanies', 'required'),
 			array('name', 'length', 'max'=>45),
 			array('descriptions', 'length', 'max'=>256),
 			array('name, descriptions', 'filter', 'filter'=>'trim'),
 			array('name, descriptions', 'filter', 'filter'=>'strip_tags'),
-			array('Company_idCompany', 'numerical', 'integerOnly'=>true),
+			array('Companies_idCompanies', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idOrthosis, name, descriptions, Company_idCompany', 'safe', 'on'=>'search'),
+			array('idOrthosis, name, descriptions, Companies_idCompanies', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,7 +51,7 @@ class Orthosis extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'companyIdCompany' => array(self::BELONGS_TO, 'Company', 'Company_idCompany'),
+			'companiesIdCompanies' => array(self::BELONGS_TO, 'Companies', 'Companies_idCompanies'),
 			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Orthosis_idOrthosis'),
 		);
 	}
@@ -65,7 +65,7 @@ class Orthosis extends CActiveRecord
 			'idOrthosis' => 'Id Orthosis',
 			'name' => 'Name',
 			'descriptions' => 'Descriptions',
-			'Company_idCompany' => 'Company Id Company',
+			'Companies_idCompanies' => 'Companies Id Companies',
 		);
 	}
 
@@ -90,17 +90,17 @@ class Orthosis extends CActiveRecord
 		$criteria->compare('idOrthosis',$this->idOrthosis,true);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('descriptions',$this->descriptions,true);
-		$criteria->compare('Company_idCompany',$this->Company_idCompany,true);
+		$criteria->compare('Companies_idCompanies',$this->Companies_idCompanies,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 	
-	public function getCompanyOptions()
+	public function getCompaniesOptions()
 	{
-		$companyArray = CHtml::listData($this->Company_idCompany, 'idCompany', 'name');
-		return $companyArray;
+		$companiesArray = CHtml::listData($this->Companies_idCompanies, 'idCompanies', 'name');
+		return $companiesArray;
 	}
 	/**
 	 * Returns the static model of the specified AR class.
