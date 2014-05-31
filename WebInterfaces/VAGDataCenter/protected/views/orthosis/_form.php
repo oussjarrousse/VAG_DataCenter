@@ -27,13 +27,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'descriptions'); ?>
-		<?php echo $form->textField($model,'descriptions',array('size'=>256,'maxlength'=>256)); ?>
+		<?php echo $form->textArea($model,'descriptions',array('maxlength'=>256, 'rows'=>8, 'cols'=>45, 'style' => 'resize:none')); ?>
 		<?php echo $form->error($model,'descriptions'); ?>
 	</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'Companies_idCompanies'); ?>
-		<?php echo $form->dropDownList($model,'Companies_idCompanies',$model->getCompaniesOptions()); ?>
+		<?php echo $form->dropDownList($model,'Companies_idCompanies',$model->getCompaniesOptions())?>
 		<?php echo $form->error($model,'Companies_idCompanies'); ?>
 	</div>
 	

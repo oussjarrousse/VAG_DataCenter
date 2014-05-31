@@ -8,10 +8,8 @@
  * @property string $name
  * @property string $website
  * @property string $descriptions
- * @property integer $Contacts_idContacts
  *
  * The followings are the available model relations:
- * @property Contacts $contactsIdContacts
  * @property Orthosis[] $orthosises
  * @property Sensors[] $sensors
  * @property SignalConditioners[] $signalConditioners
@@ -34,13 +32,8 @@ class Companies extends CActiveRecord {
 		// will receive user inputs.
 		return array (
 				array (
-						'name, website, descriptions, Contacts_idContacts',
+						'name, website, descriptions',
 						'required' 
-				),
-				array (
-						'Contacts_idContacts',
-						'numerical',
-						'integerOnly' => true 
 				),
 				array (
 						'name, website',
@@ -69,7 +62,7 @@ class Companies extends CActiveRecord {
 				// The following rule is used by search().
 				// @todo Please remove those attributes that should not be searched.
 				array (
-						'idCompanies, name, website, descriptions, Contacts_idContacts',
+						'idCompanies, name, website, descriptions',
 						'safe',
 						'on' => 'search' 
 				) 
@@ -84,11 +77,6 @@ class Companies extends CActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array (
-				'contactsIdContacts' => array (
-						self::BELONGS_TO,
-						'Contacts',
-						'Contacts_idContacts' 
-				),
 				'orthosises' => array (
 						self::HAS_MANY,
 						'Orthosis',
@@ -117,7 +105,6 @@ class Companies extends CActiveRecord {
 				'name' => 'Name',
 				'website' => 'Website',
 				'descriptions' => 'Descriptions',
-				'Contacts_idContacts' => 'Contacts Id Contacts' 
 		);
 	}
 	
@@ -141,7 +128,6 @@ class Companies extends CActiveRecord {
 		$criteria->compare ( 'name', $this->name, true );
 		$criteria->compare ( 'website', $this->website, true );
 		$criteria->compare ( 'descriptions', $this->descriptions, true );
-		$criteria->compare ( 'Contacts_idContacts', $this->Contacts_idContacts );
 		
 		return new CActiveDataProvider ( $this, array (
 				'criteria' => $criteria 

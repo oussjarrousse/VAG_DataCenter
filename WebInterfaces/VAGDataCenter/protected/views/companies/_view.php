@@ -21,9 +21,4 @@
 	<?php echo CHtml::encode($data->descriptions); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Contacts_idContacts')); ?>:</b>
-	<?php echo CHtml::encode($data->Contacts_idContacts); ?>
-	<br />
-
-
 </div>

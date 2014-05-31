@@ -33,14 +33,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'descriptions'); ?>
-		<?php echo $form->textField($model,'descriptions',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textArea($model,'descriptions',array('maxlength'=>256, 'rows'=>8, 'cols'=>45, 'style' => 'resize:none')); ?>
 		<?php echo $form->error($model,'descriptions'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'Contacts_idContacts'); ?>
-		<?php echo $form->textField($model,'Contacts_idContacts'); ?>
-		<?php echo $form->error($model,'Contacts_idContacts'); ?>
 	</div>
 
 	<div class="row buttons">

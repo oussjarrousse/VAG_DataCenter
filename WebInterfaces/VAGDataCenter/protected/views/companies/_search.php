@@ -31,11 +31,6 @@
 		<?php echo $form->textField($model,'descriptions',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'Contacts_idContacts'); ?>
-		<?php echo $form->textField($model,'Contacts_idContacts'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

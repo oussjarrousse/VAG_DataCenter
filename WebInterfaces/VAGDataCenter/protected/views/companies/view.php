@@ -25,6 +25,5 @@ $this->menu=array(
 		'name',
 		'website',
 		'descriptions',
-		'Contacts_idContacts',
 	),
 )); ?>
