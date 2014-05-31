@@ -65,7 +65,7 @@ class Orthosis extends CActiveRecord
 			'idOrthosis' => 'Id Orthosis',
 			'name' => 'Name',
 			'descriptions' => 'Descriptions',
-			'Companies_idCompanies' => 'Companies Id Companies',
+			'Companies_idCompanies' => 'Company ID',
 		);
 	}
 
@@ -98,9 +98,8 @@ class Orthosis extends CActiveRecord
 	}
 	
 	public function getCompaniesOptions()
-	{
-		$companiesArray = CHtml::listData($this->Companies_idCompanies, 'idCompanies', 'name');
-		return $companiesArray;
+	{	
+		return CHtml::listData(Companies::model()->findAll(), 'idCompanies', 'name');
 	}
 	/**
 	 * Returns the static model of the specified AR class.

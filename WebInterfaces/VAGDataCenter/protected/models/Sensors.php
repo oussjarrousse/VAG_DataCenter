@@ -100,6 +100,11 @@ class Sensors extends CActiveRecord
 		));
 	}
 
+	public function getCompaniesOptions()
+	{
+		return CHtml::listData(Companies::model()->findAll(), 'idCompanies', 'name');
+	}
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

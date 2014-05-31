@@ -96,6 +96,11 @@ class SignalConditioners extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	public function getCompaniesOptions()
+	{
+		return CHtml::listData(Companies::model()->findAll(), 'idCompanies', 'name');
+	}
 
 	/**
 	 * Returns the static model of the specified AR class.

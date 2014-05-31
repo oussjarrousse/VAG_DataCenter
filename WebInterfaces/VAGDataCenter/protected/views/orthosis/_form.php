@@ -33,7 +33,7 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'Companies_idCompanies'); ?>
-		<?php echo $form->dropDownList($model,'Companies_idCompanies',$model->getCompaniesOptions())?>
+		<?php echo $form->dropDownList($model,'Companies_idCompanies', $model->getCompaniesOptions()); ?>
 		<?php echo $form->error($model,'Companies_idCompanies'); ?>
 	</div>
 	

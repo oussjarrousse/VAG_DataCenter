@@ -39,7 +39,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'Companies_idCompanies'); ?>
-		<?php echo $form->textField($model,'Companies_idCompanies',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->dropDownList($model,'Companies_idCompanies', $model->getCompaniesOptions()); ?>
 		<?php echo $form->error($model,'Companies_idCompanies'); ?>
 	</div>
 
