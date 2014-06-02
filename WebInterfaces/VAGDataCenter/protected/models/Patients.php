@@ -36,7 +36,7 @@ class Patients extends CActiveRecord
 		return array(
 			array('idPatients, md5hash, birthdate, gender', 'required'),
 			array('gender', 'numerical', 'integerOnly'=>true, 'min'=>0, 'max'=>1),
-			array('birthdate','date'),
+			array('birthdate','date','format'=>'yyyy-MM-dd'),//MySQL like format
 			array('idPatients', 'length', 'max'=>10),
 			array('md5hash', 'length', 'max'=>64),
 			// The following rule is used by search().

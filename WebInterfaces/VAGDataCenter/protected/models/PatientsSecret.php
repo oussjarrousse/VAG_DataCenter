@@ -38,11 +38,9 @@ class PatientsSecret extends CActiveRecord
 			array('firstname, lastname', 'length', 'max'=>45),
 			array('firstname, lastname', 'filter', 'filter'=>'trim'),
 			array('firstname, lastname', 'filter', 'filter'=>'strip_tags'),
-			array('birthdate','date'),
+			array('birthdate','date','format'=>'yyyy-MM-dd'),//MySQL like format
 			array('md5', 'length', 'max'=>32),
-			
 			array('gender', 'numerical', 'integerOnly'=>true, 'min'=>0, 'max'=>1),
-			array('birthdate','date'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idPatientsSecret, firstname, lastname, birthdate, md5, gender', 'safe', 'on'=>'search'),
