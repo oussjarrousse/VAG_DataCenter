@@ -54,6 +54,7 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAG',
 			'emulatePrepare' => true,
+			'enableParamLogging' => true,
 			'username' => 'DataCenter',
 			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
 			'charset' => 'utf8',
@@ -61,6 +62,7 @@ return array(
 		'dbSecret'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAGPatientsSecret',
 			'emulatePrepare' => true,
+			'enableParamLogging' => true,
 			'username' => 'DataCenter',
 			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
 			'charset' => 'utf8',
@@ -79,11 +81,11 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+				//*
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
+				//*/
 			),
 		),
 	),
