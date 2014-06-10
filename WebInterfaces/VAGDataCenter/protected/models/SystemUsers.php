@@ -37,7 +37,6 @@ class SystemUsers extends CActiveRecord
 			array('username, firstname, lastname, email, password', 'length', 'max'=>45),
 			array('username, firstname, lastname', 'filter', 'filter'=>'trim'),
 			array('firstname, lastname', 'filter', 'filter'=>'strip_tags'),
-			array('birthdate','date'),
 				
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
