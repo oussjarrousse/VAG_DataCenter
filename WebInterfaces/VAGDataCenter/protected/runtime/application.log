@@ -1440,3 +1440,242 @@ REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=orthosis/create
 in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/models/Orthosis.php (103)
 in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/views/orthosis/_form.php (36)
 in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/views/orthosis/create.php (18)
+2014/06/02 11:27:29 [error] [php] A non well formed numeric value encountered (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:76)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (76)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:29:03 [error] [php] A non well formed numeric value encountered (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:76)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (76)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:35:25 [error] [php] date_format() expects parameter 1 to be DateTime, string given (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:77)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (77)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:39:35 [error] [php] date_format() expects parameter 1 to be DateTime, string given (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:77)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (77)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:43:56 [error] [php] A non well formed numeric value encountered (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:78)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#11 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (78)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:47:18 [error] [php] Undefined variable: format (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:74)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (74)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:48:31 [error] [php] Undefined variable: md5 (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:75)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (75)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:53:46 [error] [php] Undefined variable: md5 (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:74)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (74)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 11:54:06 [error] [php] Undefined variable: md5hash (/home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php:74)
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(133): PatientsSecretController->runAction()
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): PatientsSecretController->filterAccessControl()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): PatientsSecretController->runActionWithFilters()
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): PatientsSecretController->run()
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CWebApplication->run()
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/create
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/protected/controllers/PatientsSecretController.php (74)
+in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php (13)
+2014/06/02 12:31:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patients/create')
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patients/create
+HTTP_REFERER=http://localhost/WebInterfaces/VAGDataCenter/index.php?r=patients
+---
+2014/06/02 12:55:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "create".' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(270): CController->missingAction('create')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patients/create')
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patients/create
+HTTP_REFERER=http://localhost/WebInterfaces/VAGDataCenter/index.php?r=patients
+---
+2014/06/02 13:13:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php:483
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(270): CController->missingAction('search')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('search')
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('patientsSecret/...')
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=patientsSecret/search
+---
+2014/06/06 14:22:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "SystemUsers".' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('SystemUsers')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=SystemUsers
+---
+2014/06/06 14:26:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('systemUsers')
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=systemUsers
+HTTP_REFERER=http://localhost/WebInterfaces/VAGDataCenter/index.php?r=site/login
+---
+2014/06/06 14:26:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('')
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('systemUsers')
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=systemUsers
+---
+2014/06/06 14:33:43 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#8 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('systemUsers/cre...')
+#9 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/ouss/Documents/workspace/VAG_DataCenter/WebInterfaces/VAGDataCenter/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/WebInterfaces/VAGDataCenter/index.php?r=systemUsers/create
+HTTP_REFERER=http://localhost/WebInterfaces/VAGDataCenter/index.php?r=systemUsers
+---
