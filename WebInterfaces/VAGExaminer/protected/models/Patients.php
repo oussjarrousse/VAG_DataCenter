@@ -36,15 +36,29 @@ class Patients extends CActiveRecord
 		return array(
 			array('idPatients, md5hash, birthdate, gender', 'required'),
 			array('gender', 'numerical', 'integerOnly'=>true, 'min'=>0, 'max'=>1),
-			array('birthdate','date'),
+			array('birthdate','date','format'=>'yyyy-MM-dd'),//MySQL like format
 			array('idPatients', 'length', 'max'=>10),
 			array('md5hash', 'length', 'max'=>64),
+			array('md5hash','unique'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idPatients, md5hash, birthdate, gender', 'safe', 'on'=>'search'),
 		);
 	}
-
+	protected function afterFind ()
+	{
+		// convert to display format
+		$this->birthdate = strtotime ($this->birthdate);
+		$this->birthdate = date('d.m.Y', $this->birthdate);
+		parent::afterFind ();
+	}
+	protected function beforeValidate ()
+	{
+		// convert to storage format
+		$this->birthdate = strtotime ($this->birthdate);
+		$this->birthdate = date ('Y-m-d', $this->birthdate);
+		return parent::beforeValidate ();
+	}
 	/**
 	 * @return array relational rules.
 	 */
