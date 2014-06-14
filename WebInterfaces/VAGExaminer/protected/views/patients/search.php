@@ -4,6 +4,8 @@
 /* @var $form CActiveForm */
 ?>
 
+<h2>Search Patient</h2>
+
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(

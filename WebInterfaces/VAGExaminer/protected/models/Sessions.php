@@ -62,9 +62,9 @@ class Sessions extends CActiveRecord
 			'mRIDataSets' => array(self::HAS_MANY, 'MRIDataSets', 'Sessions_idSession'),
 			'oNNForms' => array(self::HAS_MANY, 'ONNForm', 'Sessions_idSession'),
 			'oxfordKneeScores' => array(self::HAS_MANY, 'OxfordKneeScores', 'Sessions_idSession'),
+			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Sessions_idSession'),	
 			'patientsIdPatients' => array(self::BELONGS_TO, 'Patients', 'Patients_idPatients'),
 			'systemUsersIdSystemUser' => array(self::BELONGS_TO, 'SystemUsers', 'SystemUsers_idSystemUser'),
-			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Sessions_idSession'),
 		);
 	}
 

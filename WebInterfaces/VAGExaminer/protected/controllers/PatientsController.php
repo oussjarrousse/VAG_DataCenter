@@ -17,7 +17,7 @@ class PatientsController extends Controller
 	{
 		return array(
 				'accessControl', // perform access control for CRUD operations, check the function accessRules()
-				'postOnly + delete', // we only allow deletion via POST request
+				'postOnly + list', // we only allow deletion via POST request
 		);
 	}
 	
@@ -57,6 +57,8 @@ class PatientsController extends Controller
 	 */
 	public function actionCreate()
 	{
+		unset(Yii::app()->session['idPatient']);
+		
 		$model=new PatientsSecret;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -70,8 +72,9 @@ class PatientsController extends Controller
 			$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
 			if(!empty($patient))
 			{
-				echo $patient->idPatients;
-				$this->redirect(array('view','id'=>$model->idPatientsSecret));
+				//Set the Session idPatient
+				Yii::app()->session['idPatient'] = $patient->idPatients;
+				$this->redirect(array('Sessions/List'));
 			}				
 			$transaction = $model->dbConnection->beginTransaction();
 			try
@@ -88,7 +91,8 @@ class PatientsController extends Controller
 				
 				$transaction->commit();
 				//Redirect to the right view
-				$this->redirect(array('view','id'=>$model->idPatientsSecret));
+				Yii::app()->session['idPatient'] = $patient->idPatients;
+				$this->redirect(array('Sessions/List'));
 			}
 			catch (Exception $e)
 			{
@@ -116,8 +120,10 @@ class PatientsController extends Controller
 	
 	public function actionSearch()
 	{
-		$model = new PatientsSearchForm;
+		//unset the session idPatient;
+		unset(Yii::app()->session['idPatient']);
 		
+		$model = new PatientsSearchForm;
 		if(isset($_POST['PatientsSearchForm']))
 		{
 			$model->attributes=$_POST['PatientsSearchForm'];
@@ -125,17 +131,17 @@ class PatientsController extends Controller
 			$condition='$md5hash=1';
 			$params=array('');
 			$patient = Patients::model()->findByAttributes(array('md5hash'=>$md5));
-			if ($patient  === null) 
+			if (empty($patient)) 
 			{
 				// No patient found!
 				// render the Create form with the right data :-)
-				$this->redirect(array('create','firstname'=>$model->firstname,'lastname'=>$model->lastname,'birthdate'=>$model->birthdate));
+				$this->redirect(array('Patients/Create','firstname'=>$model->firstname,'lastname'=>$model->lastname,'birthdate'=>$model->birthdate));
 			}
-			//Display that the patient was found and render the right view
-			//$this->redirect(array('view','id'=>$patient->idPatients));
 			else
 			{
-				echo 'YES';
+				//Set the Session idPatient
+				Yii::app()->session['idPatient'] = $patient->idPatients;
+				$this->redirect(array('Sessions/List'));
 			}
 		}
 		

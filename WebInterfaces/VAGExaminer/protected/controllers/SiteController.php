@@ -27,9 +27,14 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if(Yii::app()->user->isGuest)
+		{
+			$this->redirect(array('Site/Login'));
+			// IF NOT LOGGED IN, GO TO LOGIN SCREEN
+		}
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		$this->redirect(array('Patients/Search'));
 	}
 
 	/**
@@ -104,6 +109,11 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
+		if (Yii::app()->session->getIsStarted())
+		{
+			Yii::app()->session->clear();
+			Yii::app()->session->destroy();
+		}
 		$this->redirect(Yii::app()->homeUrl);
 	}
 }
