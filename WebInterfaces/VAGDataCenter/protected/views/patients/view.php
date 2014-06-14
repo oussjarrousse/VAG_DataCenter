@@ -9,12 +9,12 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Patients', 'url'=>array('index')),
-/*
+//*
 	array('label'=>'Create Patients', 'url'=>array('create')),
 	array('label'=>'Update Patients', 'url'=>array('update', 'id'=>$model->idPatients)),
 	array('label'=>'Delete Patients', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idPatients),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Patients', 'url'=>array('admin')),
-*/	
+//*/	
 );
 ?>
 
@@ -25,7 +25,15 @@ $this->menu=array(
 	'attributes'=>array(
 		'idPatients',
 		'md5hash',
-		'birthdate',
+		//*
+		'name' => 'birthdate',
+		//*/
+		/*
+		array(
+		'name' => 'birthdate',
+		'value' => Yii::app()->dateFormatter->format('dd.MM.yyyy', $model->birthdate),
+		),
+		//*/
 		'gender',
 	),
 )); ?>

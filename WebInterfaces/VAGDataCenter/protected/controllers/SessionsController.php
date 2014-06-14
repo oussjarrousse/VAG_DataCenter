@@ -1,6 +1,6 @@
 <?php
 
-class PatientsSecretController extends Controller
+class SessionsController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,14 +27,12 @@ class PatientsSecretController extends Controller
 	public function accessRules()
 	{
 		return array(
-			/*
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			//*/
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index', 'view', 'create','update'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -64,41 +62,17 @@ class PatientsSecretController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new PatientsSecret;
+		$model=new Sessions;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		if(isset($_POST['PatientsSecret']))
+
+		if(isset($_POST['Sessions']))
 		{
-			$model->attributes=$_POST['PatientsSecret'];
-			$model->md5= md5($model->firstname . $model->lastname . date('Ymd',strtotime($model->birthdate)));
-			
-			//check if the record already exists
-			$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
-			if(!empty($patient))
-			{
-				echo $patient->idPatients;
-				$this->redirect(array('view','id'=>$model->idPatientsSecret));
-			}
-			$transaction = $model->dbConnection->beginTransaction();
-			try
-			{
-				if(!$model->save())
-					throw new Exception('PatientsSecret model save failed');	
-				$patient = new Patients;
-				$patient->idPatients = $model->idPatientsSecret;
-				$patient->md5hash = $model->md5;
-				$patient->birthdate = $model->birthdate;
-				$patient->gender = $model->gender;
-				if(!$patient->save())
-					throw new Exception('Patients model save failed');
-				$transaction->commit();
-				$this->redirect(array('view','id'=>$model->idPatientsSecret));
-			}
-			catch (Exception $e)
-			{
-				$transaction->rollback();
-			}
-		} 
+			$model->attributes=$_POST['Sessions'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->idSession));
+		}
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -113,32 +87,17 @@ class PatientsSecretController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		if(isset($_POST['PatientsSecret']))
+
+		if(isset($_POST['Sessions']))
 		{
-			$model->attributes=$_POST['PatientsSecret'];
-			$model->md5= md5($model->firstname . $model->lastname . date('Ymd',strtotime($model->birthdate)));
-			//Must change consiqutive saves into a Transaction
-			$transaction = $model->dbConnection->beginTransaction();
-			try
-			{
-				if(!$model->save())
-					throw new Exception('PatientsSecret model save failed');	
-				$patient = Patients::model()->findByPk($id);
-				$patient->md5hash = $model->md5;
-				$patient->birthdate = $model->birthdate;
-				$patient->gender = $model->gender;
-				if(!$patient->save())
-					throw new Exception('Patients model save failed');
-				$transaction->commit();
-				$this->redirect(array('view','id'=>$model->idPatientsSecret));
-			}
-			catch (Exception $e)
-			{
-				$transaction->rollback();
-			}
+			$model->attributes=$_POST['Sessions'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->idSession));
 		}
+
 		$this->render('update',array(
 			'model'=>$model,
 		));
@@ -151,21 +110,8 @@ class PatientsSecretController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$transaction = Yii::app()->db->beginTransaction();
-		try
-		{
-			//delete patientsecret
-			PatientsSecret::model()->findByPk($id)->delete();
-			
-			//delete patient
-			Patients::model()->findByPk($id)->delete();
-			$transaction->commit();
-		}
-		catch(Exception $e)
-		{
-			$transaction->rollback();
-		}
-		
+		$this->loadModel($id)->delete();
+
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -176,7 +122,7 @@ class PatientsSecretController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('PatientsSecret');
+		$dataProvider=new CActiveDataProvider('Sessions');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -187,10 +133,10 @@ class PatientsSecretController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new PatientsSecret('search');
+		$model=new Sessions('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PatientsSecret']))
-			$model->attributes=$_GET['PatientsSecret'];
+		if(isset($_GET['Sessions']))
+			$model->attributes=$_GET['Sessions'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -201,12 +147,12 @@ class PatientsSecretController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return PatientsSecret the loaded model
+	 * @return Sessions the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=PatientsSecret::model()->findByPk($id);
+		$model=Sessions::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -214,11 +160,11 @@ class PatientsSecretController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param PatientsSecret $model the model to be validated
+	 * @param Sessions $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='patients-secret-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='sessions-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

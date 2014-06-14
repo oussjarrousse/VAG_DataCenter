@@ -25,6 +25,12 @@ $this->menu=array(
 		'firstname',
 		'lastname',
 		'birthdate',
+		/*
+		array(
+			'name' => 'birthdate',
+			'value' => Yii::app()->dateFormatter->format('dd.MM.yyyy', $model->birthdate),
+		),
+		//*/
 		'md5',
 		'gender',
 	),

@@ -33,20 +33,25 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'birthdate'); ?>
-		<!--<?php echo $form->dateField($model, 'birthdate'); ?>-->
 		<?php 
 			$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+				'name'=>'datepicker-patientsSecretForm',
+				//'flat'=>true,
 				'attribute'=>'birthdate',
 				'model' => $model,
 				'options'=>array(
-					'dateFormat'=>'YYYY-MM-DD', //MySQL Like
+					'dateFormat'=>'dd.mm.yy',
 					'maxDate'=>'new Date()', // Today
-					//'minDate'=>'+1m', // One month ahead					
+					'minDate'=>'01.01.1900',
+					'showAnim'=>'blind',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+					'changeYear'=>true,
+					'yearRange'=>'1900:'.date("Y"),
 				))
 			);
 		?>
 		<?php echo $form->error($model,'birthdate'); ?>
 	</div>
+	
 <!--  
 	<div class="row">
 		<?php echo $form->labelEx($model,'md5'); ?>
