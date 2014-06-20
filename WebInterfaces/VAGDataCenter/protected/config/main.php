@@ -32,7 +32,7 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin'=>false,
 		),
 		// uncomment the following to enable URLs in path-format
 		/*
@@ -84,16 +84,20 @@ return array(
 				//*
 				array(
 					'class'=>'CWebLogRoute',
-				),
-				//*/
+				),//*/
 			),
 		),
+		/*
+		'authManager'=>array(
+			'class'=>'CDbAuthManager',
+			'connectionID'=>'db',
+		),//*/
 	),
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail'=>'oussama.jarrousse@gmail.com',
 	),
 );
