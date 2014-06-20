@@ -96,9 +96,11 @@ class PatientsController extends Controller
 			}
 			catch (Exception $e)
 			{
-				//echo $e->getMessage();
+				//$model->birthdate = date ('d.m.Y', strtotime($model->birthdate));
+				echo $e->getMessage();
 				$transaction->rollback();
 				//$this->redirect(array('search'));
+				//$model->birthdate = date ('Y-m-d', $model->birthdate);
 			}
 		}
 	

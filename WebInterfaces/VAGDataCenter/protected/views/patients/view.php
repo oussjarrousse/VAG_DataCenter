@@ -34,6 +34,11 @@ $this->menu=array(
 		'value' => Yii::app()->dateFormatter->format('dd.MM.yyyy', $model->birthdate),
 		),
 		//*/
-		'gender',
+		//*
+		array(
+			'name'=>'gender',
+			'value'=> $model->genderLabel,
+		),
+		//*/
 	),
 )); ?>

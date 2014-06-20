@@ -76,7 +76,7 @@ class PatientsSecretController extends Controller
 			$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
 			if(!empty($patient))
 			{
-				echo $patient->idPatients;
+				//echo $patient->idPatients;
 				$this->redirect(array('view','id'=>$model->idPatientsSecret));
 			}
 			$transaction = $model->dbConnection->beginTransaction();

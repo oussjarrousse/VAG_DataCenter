@@ -87,7 +87,10 @@ class Patients extends CActiveRecord
 			'gender' => 'Gender',
 		);
 	}
-
+	public function GetGenderLabel()
+	{
+		return $this->gender == 0 ? 'Male' : 'Female';
+	}
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

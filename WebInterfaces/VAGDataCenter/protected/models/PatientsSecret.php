@@ -61,6 +61,15 @@ class PatientsSecret extends CActiveRecord
 		$this->birthdate = date ('Y-m-d', $this->birthdate);
 		return parent::beforeValidate ();
 	}
+	/*
+	protected function afterSave()
+	{
+		//if validation failed... 
+		$this->birthdate = date('d.m.Y',strtotime($this->birthdate));
+		return parent::afterSave();
+	}
+	//*/
+	
 	/**
 	 * @return array relational rules.
 	 */
@@ -88,7 +97,10 @@ class PatientsSecret extends CActiveRecord
 			'gender' => 'Gender',
 		);
 	}
-
+	public function GetGenderLabel()
+	{
+		return $this->gender == 0 ? 'Male' : 'Female';
+	}
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

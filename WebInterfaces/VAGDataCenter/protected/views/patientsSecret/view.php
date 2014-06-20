@@ -32,6 +32,9 @@ $this->menu=array(
 		),
 		//*/
 		'md5',
-		'gender',
+		array(
+			'name'=>'gender',
+			'value'=> $model->genderLabel,
+		),
 	),
 )); ?>
