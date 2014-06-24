@@ -40,18 +40,6 @@ class PatientsController extends Controller
 	}
 	
 	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		//Render the right view
-		$this->render('view',array(
-				'model'=>$this->loadModel($id),
-		));
-	}
-	
-	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
@@ -104,7 +92,6 @@ class PatientsController extends Controller
 			}
 		}
 	
-		//Render the right view
 		if(!isset($_POST['PatientsSecret']))
 		{
 			if(isset($_GET['firstname']))
@@ -114,7 +101,7 @@ class PatientsController extends Controller
 			if(isset($_GET['birthdate']))
 				$model->birthdate=$_GET['birthdate'];
 		}
-		
+		//Render the create view and pass the model
 		$this->render('create',array(
 				'model'=>$model,
 		));
@@ -124,8 +111,8 @@ class PatientsController extends Controller
 	{
 		//unset the session idPatient;
 		unset(Yii::app()->session['idPatient']);
-		
 		$model = new PatientsSearchForm;
+		
 		if(isset($_POST['PatientsSearchForm']))
 		{
 			$model->attributes=$_POST['PatientsSearchForm'];
