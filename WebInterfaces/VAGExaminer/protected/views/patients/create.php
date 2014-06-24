@@ -4,13 +4,12 @@
 /* @var $model PatientsSecret */
 
 $this->breadcrumbs=array(
-	'Patients Secrets'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List PatientsSecret', 'url'=>array('index')),
-	array('label'=>'Manage PatientsSecret', 'url'=>array('admin')),
+//	array('label'=>'List PatientsSecret', 'url'=>array('index')),
+//	array('label'=>'Manage PatientsSecret', 'url'=>array('admin')),
 );
 ?>
  -->

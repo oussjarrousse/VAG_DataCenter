@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-		array('label'=>'Create Sessions', 'url'=>array('create')),
+		array('label'=>'New Session', 'url'=>array('create')),
 );
 ?>
 
