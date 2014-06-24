@@ -18,13 +18,12 @@ $this->menu=array(
 );
 ?>
 
-<h2>View Patients #<?php echo $model->idPatients; ?></h2>
+<h2>Patient: <?php echo $model->md5hash; ?></h2>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'idPatients',
-		'md5hash',
+		//'idPatients',
 		//*
 		'birthdate',
 		//*/
@@ -38,5 +37,6 @@ $this->menu=array(
 			'name'=>'gender',
 			'value'=> $model->genderLabel,
 		), 
+		'md5hash',
 	),
 )); ?>

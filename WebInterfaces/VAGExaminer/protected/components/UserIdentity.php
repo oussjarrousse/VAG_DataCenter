@@ -7,6 +7,8 @@
  */
 class UserIdentity extends CUserIdentity
 {
+	
+	private $idSystemUser;
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -30,7 +32,8 @@ class UserIdentity extends CUserIdentity
 		else
 		{
 			$this->errorCode=self::ERROR_NONE;
-			//$this->$systemUserID=$user->idSystemUser;
+			$this->idSystemUser=$user->idSystemUser;
+			echo"Hello";
 		}
 		return !$this->errorCode;
 		/*
@@ -47,5 +50,10 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_NONE;
 		return !$this->errorCode;
 		*/
+	}
+	
+	public function getId()
+	{
+		return $this->idSystemUser;
 	}
 }

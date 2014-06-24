@@ -36,8 +36,8 @@ class Sessions extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('timestamp, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
-			array('SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
-			array('timestamp', 'type', 'type'=>'datetime'),
+			//array('SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
+			//array('timestamp', 'type', 'type'=>'datetime'),
 							
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -51,6 +51,7 @@ class Sessions extends CActiveRecord
 			$this->timestamp = new CDbExpression('NOW()');
 		return parent::beforeSave();
 	}
+	
 	/**
 	 * @return array relational rules.
 	 */
@@ -63,8 +64,8 @@ class Sessions extends CActiveRecord
 			'oNNForms' => array(self::HAS_MANY, 'ONNForm', 'Sessions_idSession'),
 			'oxfordKneeScores' => array(self::HAS_MANY, 'OxfordKneeScores', 'Sessions_idSession'),
 			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Sessions_idSession'),	
-			'patientsIdPatients' => array(self::BELONGS_TO, 'Patients', 'Patients_idPatients'),
-			'systemUsersIdSystemUser' => array(self::BELONGS_TO, 'SystemUsers', 'SystemUsers_idSystemUser'),
+			'patients' => array(self::BELONGS_TO, 'Patients', 'Patients_idPatients'),
+			'systemUsers' => array(self::BELONGS_TO, 'SystemUsers', 'SystemUsers_idSystemUser'),
 		);
 	}
 

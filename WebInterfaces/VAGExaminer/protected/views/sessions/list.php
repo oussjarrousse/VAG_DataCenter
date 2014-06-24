@@ -15,9 +15,24 @@ $this->menu=array(
 <?php echo $renderedPatientView; ?>
 <br>
 
-<h2>Patients Sessions</h2>
+<h2>Patient Sessions</h2>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+	'columns' => array(
+			array(
+				'name'=>'Examiner', 'value'=>'$data->systemUsers->firstname." ".$data->systemUsers->lastname'
+			),
+			'timestamp',
+			array(
+				'class'=>'CButtonColumn',
+				'template'=>'{view}',
+				'buttons'=>array(
+					'view'=> array(
+						'imageUrl' => false,
+					)
+				)
+			),
+		),
+	)
+); ?>

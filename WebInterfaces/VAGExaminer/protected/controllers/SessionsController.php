@@ -43,14 +43,14 @@ class SessionsController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	/*
+	//*
 	public function actionView($id)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
 	}
-	*/
+	//*/
 	
 	/**
 	 * Creates a new model.
@@ -58,6 +58,12 @@ class SessionsController extends Controller
 	 */
 	public function actionCreate()
 	{
+		$idPatient = Yii::app()->session['idPatient'];
+		if(empty($idPatient))
+		{
+			$this->redirect(array('Patients/Search'));
+		}
+		
 		$model=new Sessions;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -69,12 +75,15 @@ class SessionsController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idSession));
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		
+		$model->SystemUsers_idSystemUser = Yii::App()->user->id;
+		$model->Patients_idPatients = $idPatient;
+		$model->timestamp = new CDbExpression('NOW()');
+		if($model->save())
+		{
+			$this->redirect(array('Sessions/List'));
+		}
 	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -138,7 +147,12 @@ class SessionsController extends Controller
 		}
 		
 		$renderedPatientView = $this->renderPartial('/patients/view', array('model'=>$patientModel), true);
-		$dataProvider=new CActiveDataProvider('Sessions');
+		
+		$criteria = new CDbCriteria();
+		$criteria->compare('Patients_idPatients',$idPatient);
+		$dataProvider=new CActiveDataProvider('Sessions', array(
+			'criteria'=> $criteria,
+		));
 		$this->render('/sessions/list',array('dataProvider'=>$dataProvider,'renderedPatientView' => $renderedPatientView));
 		
 		/*
