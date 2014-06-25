@@ -60,9 +60,8 @@ class Sessions extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'mRIDataSets' => array(self::HAS_MANY, 'MRIDataSets', 'Sessions_idSession'),
-			'oNNForms' => array(self::HAS_MANY, 'ONNForm', 'Sessions_idSession'),
-			'oxfordKneeScores' => array(self::HAS_MANY, 'OxfordKneeScores', 'Sessions_idSession'),
+			'oNNForms' => array(self::HAS_ONE, 'ONNForm', 'Sessions_idSession'),
+			'oxfordKneeScores' => array(self::HAS_ONE, 'OxfordKneeScores', 'Sessions_idSession'),
 			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Sessions_idSession'),	
 			'patients' => array(self::BELONGS_TO, 'Patients', 'Patients_idPatients'),
 			'systemUsers' => array(self::BELONGS_TO, 'SystemUsers', 'SystemUsers_idSystemUser'),

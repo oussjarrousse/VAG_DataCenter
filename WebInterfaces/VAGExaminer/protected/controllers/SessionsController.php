@@ -37,20 +37,6 @@ class SessionsController extends Controller
 			),
 		);
 	}
-
-
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	//*
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
-	//*/
 	
 	/**
 	 * Creates a new model.
@@ -68,20 +54,15 @@ class SessionsController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Sessions']))
-		{
-			$model->attributes=$_POST['Sessions'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idSession));
-		}
 		
 		$model->SystemUsers_idSystemUser = Yii::App()->user->id;
 		$model->Patients_idPatients = $idPatient;
 		$model->timestamp = new CDbExpression('NOW()');
 		if($model->save())
 		{
-			$this->redirect(array('Sessions/List'));
+			Yii::app()->session['idSession'] = $model->idSession;
+			$this->redirect(array('Sessions/View','id'=>$model->idSession));
+			//$this->redirect(array('Sessions/View'));
 		}
 	}
 	/**
@@ -109,7 +90,49 @@ class SessionsController extends Controller
 		));
 	}
 	*/
-
+	
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	public function actionView($id)
+	{	
+		Yii::app()->session['idSession'] = $id;
+		$model = $this->loadModel($id);
+		
+		
+		$renderedSessionDetailsView = '';
+		
+		$oNNForm = ONNForm::model()->findByAttributes(array('Sessions_idSession'=>$id));
+		if(!empty($oNNForm))
+		{
+			$renderedSessionDetailsView = $renderedSessionDetailsView . $this->renderPartial('/oNNForm/view', array('model'=>$oNNForm), true);
+		}
+		
+		$oxfordKneeScores = OxfordKneeScores::model()->findByAttributes(array('Sessions_idSession'=>$id));
+		if(!empty($oxfordKneeScores))
+		{
+			$renderedSessionDetailsView  = $renderedSessionDetailsView . $this->renderPartial('/oxfordKneeScores/view', array('model'=>$oxfordKneeScores), true);
+		}
+		
+		
+		
+		//$renderedSessionDetailsView = $this->renderPartial('/sessions/detailsView', array('model'=>$this->loadModel($id)), true);
+		$this->render('/sessions/view', array('model'=>$this->loadModel($id),'renderedSessionDetailsView' => $renderedSessionDetailsView));
+	}
+	
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	/*
+	public function actionView()
+	{
+		$idSession = Yii::app()->session['idSession'];
+		$renderedSessionDetailsView = $this->renderPartial('/sessions/detailsView', array('model'=>$this->loadModel($idSession )), true);
+		$this->render('/sessions/view', array('model'=>$this->loadModel($idSession ),'renderedSessionDetailsView' => $renderedSessionDetailsView));
+	}
+	*/
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.

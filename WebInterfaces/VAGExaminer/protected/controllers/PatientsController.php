@@ -111,6 +111,7 @@ class PatientsController extends Controller
 	{
 		//unset the session idPatient;
 		unset(Yii::app()->session['idPatient']);
+		unset(Yii::app()->session['idSession']);
 		$model = new PatientsSearchForm;
 		
 		if(isset($_POST['PatientsSearchForm']))
