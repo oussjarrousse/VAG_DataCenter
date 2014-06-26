@@ -78,6 +78,7 @@ div.form .hint
 	margin: 0;
 	padding: 0;
 	color: #999;
+	font-weight: none;
 }
 
 div.form .note

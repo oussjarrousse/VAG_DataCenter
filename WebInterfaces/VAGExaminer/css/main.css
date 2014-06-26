@@ -3,6 +3,7 @@
 /* Common */
 strong,.strong {font-weight:bold;}
 .center {text-align:center;}
+.left {text-align:left;}
 
 /* Shared classes */
 .header {background: #aeb2be; /* Old browsers */background: -moz-linear-gradient(top, #ffffff 0%, #aeb2be 100%); /* FF3.6+ */background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#aeb2be)); /* Chrome,Safari4+ */background: -webkit-linear-gradient(top, #ffffff 0%,#aeb2be 100%); /* Chrome10+,Safari5.1+ */background: -o-linear-gradient(top, #ffffff 0%,#aeb2be 100%); /* Opera 11.10+ */background: -ms-linear-gradient(top, #ffffff 0%,#aeb2be 100%); /* IE10+ */background: linear-gradient(top, #ffffff 0%,#aeb2be 100%); /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#aeb2be',GradientType=0 ); /* IE6-9 */
@@ -28,16 +29,31 @@ color: #fff;border-radius: 5px;border: 1px solid #6d6d6d;font-size: 12px;left: 3
 			#main .content .title4 {}
 			#main .content .title5 {}
 			#main .content>p {color:#4C536C;margin:10px 0;text-shadow:0 1px 1px #ccc;}
-			#main .content p.note {color:#4C536C;font-size:12px;text-align:center;text-shadow:0 1px 1px #ccc;}
+			#main .content p.note {color:#4C536C;font-size:12px;text-align:left;text-shadow:0 1px 1px #ccc;}
 			
 			/* Box white */
-			#main .content .box-white {background:#fff;border:1px solid #B4B7BB;border-radius:10px;}
-				#main .content .box-white p {color:#000;border-bottom:1px solid #B4B7BB;font-weight:bold;margin:0;padding:10px;}
-					#main .content .box-white p:last-child {border-bottom:none;}
-				#main .content .box-white p span {color:#4C556C;float:right;font-weight:normal;}
-					#main .content .box-white p span.detail {color: #999;float: none;font-size:12px;margin-left:5px;}
-					#main .content .box-white p span.arrow {color: #666;float: none;font-family: monospace;font-weight: bold;margin-left: 5px;text-shadow: 0 1px 1px #666;}
+			#main .content .box-white-quest {background:#fff;border:1px solid #B4B7BB;border-radius:10px;}
+				#main .content .box-white-quest p {color:#000;border-bottom:1px solid #B4B7BB;font-weight:bold;margin:0;padding:10px;}
+					#main .content .box-white-quest p:last-child {border-bottom:none;}
+				#main .content .box-white-quest p span {color:#4C556C;float:right;font-weight:normal;}
+					#main .content .box-white-quest p span.detail {color: #999;float: none;font-size:12px;margin-left:5px;}
+					#main .content .box-white-quest p span.arrow {color: #666;float: none;font-family: monospace;font-weight: bold;margin-left: 5px;text-shadow: 0 1px 1px #666;}
 			
+			/* questionnaire*/
+			#main .content .quest
+			{
+				background:#fff;
+				border:1px solid #B4B7BB;
+				border-radius:10px;
+			}
+			#main .content .quest p 
+			{
+				color:#000;
+				border-bottom:1px solid #B4B7BB;
+				font-weight:bold;
+				padding:10px;
+			}
+
 			/* Tables */
 			#main table {margin:20px 0 10px;width:100%;}
 				#main table thead th {color:#848B9A;font-size:90%;font-weight:normal;margin:20px 0 10px;padding-bottom:10px;text-align:left;}
@@ -75,7 +91,7 @@ background: -moz-linear-gradient(top, #d58e94 0%, #d42e32 50%, #be1012 51%, #901
 border-color:#9A8185;}
 
 
-	#sidebar {background:#BCBEC4;border-right:1px solid #000;height:100%;left:0;position:fixed;top:0;vertical-align:top;width:300px;z-index:1;}
+	#sidebar {background:#BCBEC4;border-right:1px solid #000;height:100%;left:0;position:fixed;top:0;vertical-align:top;width:250px;z-index:1;}
 		#sidebar .header {width:300px;}
 			#sidebar .header .title {}
 		#sidebar .content {padding: 43px 0 20px 0;}
