@@ -1,18 +1,5 @@
 /* Eric Meyer's Reset */html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}
-table
-{
-	border-collapse:collapse;
-	border-spacing:0;
-}
-
-body
-{
-	background:#d8dae0;
-	color: #555;
-	font: 16px normal Helvetica,sans-serif;
-
-}
-
+			
 #page
 {
 	border: 1px solid #C9E0ED;
@@ -32,6 +19,47 @@ body
 }
 
 #page .container p {color:#4C536C;margin:10px 0;text-shadow:0 1px 1px #ccc;}
+
+/* Tables */
+#page table {margin:20px 0 10px;width:100%;}
+	#page table thead th {color:#848B9A;font-size:90%;font-weight:normal;margin:20px 0 10px;padding-bottom:10px;text-align:left;}
+	#page table thead th:first-child {color:#000;font-size:16px;font-weight:bold;}
+	#page table tbody {background:#fff;border:1px solid #B4B7BB;border-radius:10px;/* not working */}
+	#page table tbody tr {border-bottom:1px solid #B4B7BB;}
+	#page table tbody tr:last-child {border-bottom:none;}
+	#page table tbody tr td {color:#4C556C;}
+	#page table tbody tr td:first-child {color:#000;padding-left:10px;}
+	#page table tbody tr td:last-child {}
+							
+/* Dirty fix attempt for tbody border-radius */
+#page table tbody {border-spacing: 0;}
+	#page table tbody tr {border:1px solid #B4B7BB;border-radius:10px;}
+	#page table tbody tr:first-child td:first-child {border-top-left-radius:10px;}
+	#page table tbody tr:first-child td:last-child {border-top-right-radius:10px;}
+	#page table tbody tr:last-child td:first-child {border-bottom-left-radius:10px;}
+	#page table tbody tr:last-child td:last-child {border-bottom-right-radius:10px;}
+	#page table tbody tr:last-child {border-bottom:1px solid #B4B7BB;}
+
+/* Links */
+a {color:#0085d5;text-decoration:none;-webkit-touch-callout: none;}
+#page .container p a,
+#page .container table a {display: block;padding: 10px;margin: -10px;}		
+
+table
+{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+body
+{
+	background:#d8dae0;
+	color: #555;
+	font: 16px normal Helvetica,sans-serif;
+
+}
+
+
 
 #page .header
 {
@@ -95,11 +123,19 @@ body
 {
 	padding:6px 20px 5px 20px;
 	margin:0px;
+	height:100%;
+	left:0;
+	top:0;
+	vertical-align:top;
+	width:300px;
+	z-index:1;
+	font: 16px normal Helvetica,sans-serif !important;
 }
 
 #mainmenu ul li
 {
 	display: inline;
+	font: 16px normal Helvetica,sans-serif !important;
 }
 
 #mainmenu ul li a
