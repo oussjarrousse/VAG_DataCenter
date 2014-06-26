@@ -5,7 +5,7 @@
 		<?php echo $content; ?>
 	</div><!-- content -->
 </div>
-<div class="span-5 last">
+<!-- Portlet<div class="span-5">
 	<div id="sidebar">
 	<?php
 		$this->beginWidget('zii.widgets.CPortlet', array(
@@ -17,6 +17,5 @@
 		));
 		$this->endWidget();
 	?>
-	</div><!-- sidebar -->
-</div>
+	</div></div><!-- sidebar --> 
 <?php $this->endContent(); ?>
