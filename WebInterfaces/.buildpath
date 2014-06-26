@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="WebInterfaces/VAGDataCenter"/>
+	<buildpathentry kind="src" path="WebInterfaces/VAGExaminer"/>
+	<buildpathentry kind="src" path="WebInterfaces/yii/demos/blog"/>
+	<buildpathentry kind="src" path="WebInterfaces/yii/demos/hangman"/>
+	<buildpathentry kind="src" path="WebInterfaces/yii/demos/helloworld"/>
+	<buildpathentry kind="src" path="WebInterfaces/yii/demos/phonebook"/>
+	<buildpathentry kind="src" path="WebInterfaces/yii/framework"/>
+	<buildpathentry kind="src" path="WebInterfaces/yii/requirements"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

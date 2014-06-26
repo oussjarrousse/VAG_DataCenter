@@ -26,6 +26,7 @@
 		<div class="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 <div class="container">
+
 	<div id="mainmenu" class="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(

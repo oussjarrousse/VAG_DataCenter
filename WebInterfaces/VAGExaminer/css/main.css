@@ -9,7 +9,7 @@ body
 {
 	background:#d8dae0;
 	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
+	font: 16px normal Helvetica,sans-serif;
 
 }
 
@@ -87,7 +87,10 @@ body
 	color: #fff;border-radius: 5px;border: 1px solid #6d6d6d;font-size: 12px;position: relative;padding: 5px 0px;text-decoration:none;
 
 }
-#mainmenu {}
+#mainmenu 
+{
+	font: 16px normal Helvetica,sans-serif !important;
+}
 #mainmenu ul
 {
 	padding:6px 20px 5px 20px;
@@ -264,7 +267,7 @@ div.search-form
 
 .operations li a
 {
-	font: bold 12px Arial;
+	font: 16px normal Helvetica,sans-serif;
 	color: #555;
 	display: block;
 	padding: 2px 0 2px 8px;
