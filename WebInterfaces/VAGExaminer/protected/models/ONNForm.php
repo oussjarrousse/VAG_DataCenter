@@ -37,7 +37,7 @@ class ONNForm extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('weight, height, Patients_idPatients, Sessions_idSession, complaintsDate', 'required'),
+			array('weight, height, Patients_idPatients, Sessions_idSession', 'required'),
 			array('weight, height', 'numerical'),
 			array('height, weight, Patients_idPatients, Sessions_idSession', 'length', 'max'=>10),
 			array('complaintsCause, natureOfWork, sportActivities, diagnosis', 'length', 'max'=>45),

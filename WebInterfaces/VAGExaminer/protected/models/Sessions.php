@@ -36,7 +36,7 @@ class Sessions extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('timestamp, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
-			//array('SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
+			array('SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
 			//array('timestamp', 'type', 'type'=>'datetime'),
 							
 			// The following rule is used by search().
