@@ -50,8 +50,11 @@ class ONNForm extends CActiveRecord
 	protected function afterFind ()
 	{
 		// convert to display format
-		$this->complaintsDate = strtotime ($this->complaintsDate);
-		$this->complaintsDate = date('d.m.Y', $this->complaintsDate);
+		if(!empty($this->complaintsDate))
+		{
+			$this->complaintsDate = strtotime ($this->complaintsDate);
+			$this->complaintsDate = date('d.m.Y', $this->complaintsDate);
+		}
 		parent::afterFind ();
 	}
 	protected function beforeValidate ()

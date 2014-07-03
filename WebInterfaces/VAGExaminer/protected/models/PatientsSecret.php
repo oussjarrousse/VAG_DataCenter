@@ -50,8 +50,11 @@ class PatientsSecret extends CActiveRecord
 	protected function afterFind ()
 	{
 		// convert to display format
-		$this->birthdate = strtotime ($this->birthdate);
-		$this->birthdate = date('d.m.Y', $this->birthdate);
+		if(!empty($this->birthdate))
+		{
+			$this->birthdate = strtotime ($this->birthdate);
+			$this->birthdate = date('d.m.Y', $this->birthdate);
+		}
 		parent::afterFind ();
 	}
 	protected function beforeValidate ()
