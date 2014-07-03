@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 	'New ONN Form',
 );
 
-$this->menu=array(
+//$this->menu=array(
 //	array('label'=>'List ONNForm', 'url'=>array('index')),
 //	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
-);
+//);
 ?>
 
-<h1>Create ONNForm</h1>
+<h1>New ONNForm</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

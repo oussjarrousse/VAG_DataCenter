@@ -14,6 +14,6 @@ $this->breadcrumbs=array(
 //);
 ?>
 
-<h1>Create OxfordKneeScores</h1>
+<h1>New OxfordKneeScores Form</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model,'answers'=>$model->answersLabels())); ?>
