@@ -14,7 +14,7 @@ $this->menu=array(
 	//array('label'=>'Delete Sessions', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idSession),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Sessions', 'url'=>array('admin')),
 	//array('label'=>'New Signal Acquisition', 'url'=>array('/SignalAcquisition/Create' ,array('sessionId'=>$model->idSession,'patientId'=>$model->Patients_idPatients))),
-//	array('label'=>'Add Signal Acquisition', 'url'=>array('/SignalAcquisition/Create')),
+	array('label'=>'Add Signal Acquisition', 'url'=>array('/SignalAcquisition/Create')),
 	array('label'=>'Add Oxford Knee Scores Form', 'url'=>array('/OxfordKneeScores/Create')),
 	array('label'=>'Add ONN Form', 'url'=>array('/ONNForm/Create')),
 //	array('label'=>'Add DICOM', 'url'=>array('/DICOM/Create')),
