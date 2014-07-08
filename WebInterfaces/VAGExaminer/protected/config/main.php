@@ -59,17 +59,21 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAG',
 			'emulatePrepare' => true,
-			'username' => 'DataCenter',
-			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
+			'username' => '',
+			'password' => '',
 			'charset' => 'utf8',
+			// uncomment the following to show log messages on web pages
+			'enableParamLogging' => true,
 		),
 		'dbSecret'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAGPatientsSecret',
 			'emulatePrepare' => true,
-			'username' => 'DataCenter',
-			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
+			'username' => '',
+			'password' => '',
 			'charset' => 'utf8',
 			'class'=> 'CDbConnection',
+			// uncomment the following to show log messages on web pages
+			'enableParamLogging' => true,
 		),
 		//*/
 		'errorHandler'=>array(
@@ -84,11 +88,11 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+				//*
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
+				//*/
 			),
 		),
 	),
