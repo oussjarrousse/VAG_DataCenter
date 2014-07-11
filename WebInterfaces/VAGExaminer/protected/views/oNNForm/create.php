@@ -8,6 +8,7 @@ $this->breadcrumbs=array(
 	'New ONN Form',
 );
 
+<<<<<<< HEAD
 //$this->menu=array(
 //	array('label'=>'List ONNForm', 'url'=>array('index')),
 //	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
@@ -15,5 +16,14 @@ $this->breadcrumbs=array(
 ?>
 
 <h1>New ONNForm</h1>
+=======
+$this->menu=array(
+//	array('label'=>'List ONNForm', 'url'=>array('index')),
+//	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
+);
+?>
+
+<h1>Create ONNForm</h1>
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -37,6 +37,23 @@ class SessionsController extends Controller
 			),
 		);
 	}
+<<<<<<< HEAD
+=======
+
+
+	/**
+	 * Displays a particular model.
+	 * @param integer $id the ID of the model to be displayed
+	 */
+	//*
+	public function actionView($id)
+	{
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
+	//*/
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 	
 	/**
 	 * Creates a new model.
@@ -54,15 +71,29 @@ class SessionsController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+<<<<<<< HEAD
+=======
+
+		if(isset($_POST['Sessions']))
+		{
+			$model->attributes=$_POST['Sessions'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->idSession));
+		}
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 		
 		$model->SystemUsers_idSystemUser = Yii::App()->user->id;
 		$model->Patients_idPatients = $idPatient;
 		$model->timestamp = new CDbExpression('NOW()');
 		if($model->save())
 		{
+<<<<<<< HEAD
 			Yii::app()->session['idSession'] = $model->idSession;
 			$this->redirect(array('Sessions/View','id'=>$model->idSession));
 			//$this->redirect(array('Sessions/View'));
+=======
+			$this->redirect(array('Sessions/List'));
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 		}
 	}
 	/**
@@ -90,6 +121,7 @@ class SessionsController extends Controller
 		));
 	}
 	*/
+<<<<<<< HEAD
 	
 	/**
 	 * Displays a particular model.
@@ -133,6 +165,9 @@ class SessionsController extends Controller
 		$this->render('/sessions/view', array('model'=>$this->loadModel($idSession ),'renderedSessionDetailsView' => $renderedSessionDetailsView));
 	}
 	*/
+=======
+
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.

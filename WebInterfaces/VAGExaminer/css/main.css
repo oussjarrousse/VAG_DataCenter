@@ -43,9 +43,14 @@ color: #fff;border-radius: 5px;border: 1px solid #6d6d6d;font-size: 12px;left: 3
 			#main .content .quest
 			{
 				background:#fff;
+<<<<<<< HEAD
 				border-radius:10px;
 				padding: 30px 30px 17px;
 				color: #555;
+=======
+				border:1px solid #B4B7BB;
+				border-radius:10px;
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 			}
 			#main .content .quest p 
 			{
@@ -54,6 +59,7 @@ color: #fff;border-radius: 5px;border: 1px solid #6d6d6d;font-size: 12px;left: 3
 				font-weight:bold;
 				padding:10px;
 			}
+<<<<<<< HEAD
 			#main .content .quest label 
 			{
 				cursor: pointer;
@@ -110,6 +116,9 @@ color: #fff;border-radius: 5px;border: 1px solid #6d6d6d;font-size: 12px;left: 3
 				border-image-repeat: initial;
 				min-width: -webkit-min-content;
 			}
+=======
+
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 			/* Tables */
 			#main table {margin:20px 0 10px;width:100%;}
 				#main table thead th {color:#848B9A;font-size:90%;font-weight:normal;margin:20px 0 10px;padding-bottom:10px;text-align:left;}
@@ -396,7 +405,11 @@ div.search-form
 .portlet
 {
 	position:absolute;
+<<<<<<< HEAD
 	width:250px;
+=======
+	width:300px;
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 }
 
 .portlet-decoration
@@ -467,4 +480,8 @@ div.search-form
 {
 	background: #015DE6;
 	color: #fff;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b

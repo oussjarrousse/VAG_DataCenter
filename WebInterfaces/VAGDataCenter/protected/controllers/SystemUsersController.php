@@ -27,7 +27,11 @@ class SystemUsersController extends Controller
 	public function accessRules()
 	{
 		return array(
+<<<<<<< HEAD
 			
+=======
+			/*
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
@@ -36,7 +40,11 @@ class SystemUsersController extends Controller
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
+<<<<<<< HEAD
 			
+=======
+			*/
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','create', 'update','delete','index','view'),
 				//ToDo: How to get this from Users Roles???

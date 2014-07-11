@@ -20,4 +20,9 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Patients_idPatients')); ?>:</b>
 	<?php echo CHtml::encode($data->Patients_idPatients); ?>
 	<br />
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 </div>

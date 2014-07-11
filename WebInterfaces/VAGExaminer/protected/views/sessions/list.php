@@ -21,12 +21,18 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	'columns' => array(
 			array(
+<<<<<<< HEAD
 				'name'=>'Session Number', 'value'=>'$data->idSession'
 			),
 			'timestamp',
 			array(
 				'name'=>'Examiner', 'value'=>'$data->systemUsers->firstname." ".$data->systemUsers->lastname'
 			),
+=======
+				'name'=>'Examiner', 'value'=>'$data->systemUsers->firstname." ".$data->systemUsers->lastname'
+			),
+			'timestamp',
+>>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 			array(
 				'class'=>'CButtonColumn',
 				'template'=>'{view}',
