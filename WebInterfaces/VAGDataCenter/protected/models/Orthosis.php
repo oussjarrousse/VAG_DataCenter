@@ -65,7 +65,7 @@ class Orthosis extends CActiveRecord
 			'idOrthosis' => 'Id Orthosis',
 			'name' => 'Name',
 			'descriptions' => 'Descriptions',
-			'Companies_idCompanies' => 'Company ID',
+			'Companies_idCompanies' => 'Manufacturer',
 		);
 	}
 

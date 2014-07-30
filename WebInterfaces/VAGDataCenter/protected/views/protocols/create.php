@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Protocols', 'url'=>array('index')),
+	array('label'=>'List All Protocols', 'url'=>array('index')),
 	array('label'=>'Manage Protocols', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Protocols</h1>
+<h1>Add New Protocol</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

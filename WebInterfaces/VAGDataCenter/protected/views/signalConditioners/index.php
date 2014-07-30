@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create SignalConditioners', 'url'=>array('create')),
-	array('label'=>'Manage SignalConditioners', 'url'=>array('admin')),
+	array('label'=>'Add New Signal Conditioner', 'url'=>array('create')),
+	array('label'=>'Manage Signal Conditioners', 'url'=>array('admin')),
 );
 ?>
 

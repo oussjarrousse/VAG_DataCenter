@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Orthosis', 'url'=>array('index')),
+	array('label'=>'List All Orthosis', 'url'=>array('index')),
 	array('label'=>'Manage Orthosis', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Orthosis</h1>
+<h1>Add New Orthosis</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

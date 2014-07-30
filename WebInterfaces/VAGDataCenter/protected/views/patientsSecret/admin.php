@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List PatientsSecret', 'url'=>array('index')),
-	array('label'=>'Create PatientsSecret', 'url'=>array('create')),
+	array('label'=>'Add Patient', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -56,7 +56,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		),
 		//*/
 		'md5',
-		'gender',
+		array(
+			'name' => 'gender',
+			'value' => '$data->genderLabel',
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

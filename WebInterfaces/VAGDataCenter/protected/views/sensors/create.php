@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Sensors</h1>
+<h1>Add New Sensor</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

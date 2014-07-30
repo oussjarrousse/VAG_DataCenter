@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Sensors', 'url'=>array('index')),
-	array('label'=>'Create Sensors', 'url'=>array('create')),
+	array('label'=>'List All Sensors', 'url'=>array('index')),
+	array('label'=>'Add New Sensor', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -49,7 +49,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'name',
 		'type',
 		'descriptions',
-		'Companies_idCompanies',
+		array(
+			'name' => 'Companies_idCompanies',
+			'value' => '$data->companiesIdCompanies->name',
+			'filter' => CHTML::listData(Companies::model()->findAll(),'idCompanies','name')
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

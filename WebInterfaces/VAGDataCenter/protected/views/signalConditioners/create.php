@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SignalConditioners', 'url'=>array('index')),
-	array('label'=>'Manage SignalConditioners', 'url'=>array('admin')),
+	array('label'=>'List All Signal Conditioners', 'url'=>array('index')),
+	array('label'=>'Manage Signal Conditioners', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create SignalConditioners</h1>
+<h1>Create Signal Conditioners</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

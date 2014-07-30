@@ -65,7 +65,7 @@ class SignalConditioners extends CActiveRecord
 			'idSignalConditioners' => 'Id Signal Conditioners',
 			'name' => 'Name',
 			'descriptions' => 'Descriptions',
-			'Companies_idCompanies' => 'Companies Id Companies',
+			'Companies_idCompanies' => 'Manufacturer',
 		);
 	}
 

@@ -10,10 +10,10 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Patients', 'url'=>array('index')),
 //*
-	array('label'=>'Create Patients', 'url'=>array('create')),
-	array('label'=>'Update Patients', 'url'=>array('update', 'id'=>$model->idPatients)),
+	array('label'=>'Add New Patient', 'url'=>array('PatientsSecret/create')),
+	array('label'=>'Update Patient', 'url'=>array('PatientsSecret/update', 'id'=>$model->idPatients)),
 	array('label'=>'Delete Patients', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idPatients),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Patients', 'url'=>array('admin')),
+	array('label'=>'Manage Patients', 'url'=>array('PatientsSecret/admin')),
 //*/	
 );
 ?>

@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Sensors', 'url'=>array('create')),
+	array('label'=>'Add New Sensor', 'url'=>array('create')),
 	array('label'=>'Manage Sensors', 'url'=>array('admin')),
 );
 ?>

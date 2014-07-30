@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Orthosis', 'url'=>array('index')),
-	array('label'=>'Create Orthosis', 'url'=>array('create')),
+	array('label'=>'List All Orthosis', 'url'=>array('index')),
+	array('label'=>'Add New Orthosis', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -48,7 +48,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'idOrthosis',
 		'name',
 		'descriptions',
-		'Companies_idCompanies',
+		array(
+			'name' => 'Companies_idCompanies',
+			'value' => '$data->companiesIdCompanies->name',
+			'filter' => CHTML::listData(Companies::model()->findAll(),'idCompanies','name')
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

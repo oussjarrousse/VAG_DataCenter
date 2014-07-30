@@ -5,17 +5,25 @@
 $this->breadcrumbs=array(
 	'Patients',
 );
-/*
+
 $this->menu=array(
-	array('label'=>'Create Patients', 'url'=>array('create')),
-	array('label'=>'Manage Patients', 'url'=>array('admin')),
+	array('label'=>'Add New Patient', 'url'=>array('PatientsSecret/create')),
+	array('label'=>'Manage Patients', 'url'=>array('PatientsSecret/admin')),
 );
-*/
+
 ?>
 
 <h1>Patients</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+	'columns'=>array(
+		'idPatients',
+		'birthdate',
+		'md5hash',
+		array(
+				'name' => 'gender',
+				'value' => '$data->genderLabel',
+		),
+	),
 )); ?>

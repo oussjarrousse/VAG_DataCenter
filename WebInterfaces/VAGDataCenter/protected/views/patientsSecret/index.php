@@ -7,14 +7,19 @@ $this->breadcrumbs=array(
 );
 
 	$this->menu=array(
-	array('label'=>'Create PatientsSecret', 'url'=>array('create')),
-	array('label'=>'Manage PatientsSecret', 'url'=>array('admin')),
+	array('label'=>'Add New Patient', 'url'=>array('create')),
+	array('label'=>'Manage Patients', 'url'=>array('admin')),
 );
 ?>
 
 <h1>Patients Secrets</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php 
+/*$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
-)); ?>
+)); */
+$this->widget('zii.widgets..grid.CGridView', array(
+		'dataProvider'=>$dataProvider,
+));
+?>

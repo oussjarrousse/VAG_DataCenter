@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SignalConditioners', 'url'=>array('index')),
-	array('label'=>'Create SignalConditioners', 'url'=>array('create')),
-	array('label'=>'Update SignalConditioners', 'url'=>array('update', 'id'=>$model->idSignalConditioners)),
-	array('label'=>'Delete SignalConditioners', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idSignalConditioners),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage SignalConditioners', 'url'=>array('admin')),
+	array('label'=>'List All Signal Conditioners', 'url'=>array('index')),
+	array('label'=>'Add New Signal Conditioner', 'url'=>array('create')),
+	array('label'=>'Update This Signal Conditioner', 'url'=>array('update', 'id'=>$model->idSignalConditioners)),
+	array('label'=>'Delete This SignalConditioner', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idSignalConditioners),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage Signal Conditioners', 'url'=>array('admin')),
 );
 ?>
 
@@ -24,6 +24,9 @@ $this->menu=array(
 		'idSignalConditioners',
 		'name',
 		'descriptions',
-		'Companies_idCompanies',
+		array(
+			'name'=> $model->getAttributeLabel('Companies_idCompanies'),
+			'value'=> $model->companiesIdCompanies->name,
+		),
 	),
 )); ?>

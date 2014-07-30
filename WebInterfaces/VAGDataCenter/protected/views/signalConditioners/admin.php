@@ -48,7 +48,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'idSignalConditioners',
 		'name',
 		'descriptions',
-		'Companies_idCompanies',
+		array(
+			'name' => 'Companies_idCompanies',
+			'value' => '$data->companiesIdCompanies->name',
+			'filter' => CHTML::listData(Companies::model()->findAll(),'idCompanies','name')
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),

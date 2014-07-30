@@ -67,7 +67,7 @@ class Sensors extends CActiveRecord
 			'name' => 'Name',
 			'type' => 'Type',
 			'descriptions' => 'Descriptions',
-			'Companies_idCompanies' => 'Companies Id Companies',
+			'Companies_idCompanies' => 'Manufacturer',
 		);
 	}
 

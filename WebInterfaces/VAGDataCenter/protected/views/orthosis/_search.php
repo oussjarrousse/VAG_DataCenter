@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'Companies_idCompanies'); ?>
+		<?php echo $form->label($model,'Companies_idCompanies_name'); ?>
 		<?php echo $form->textField($model,'Companies_idCompanies',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 

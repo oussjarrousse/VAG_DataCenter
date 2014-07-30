@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Protocols', 'url'=>array('index')),
-	array('label'=>'Create Protocols', 'url'=>array('create')),
+	array('label'=>'List All Protocols', 'url'=>array('index')),
+	array('label'=>'Add New Protocols', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

@@ -124,6 +124,7 @@ class PatientsSecret extends CActiveRecord
 		$criteria->compare('lastname',$this->lastname,true);
 		$criteria->compare('birthdate',$this->birthdate,true);
 		$criteria->compare('md5',$this->md5,true);
+		//To Do:
 		$criteria->compare('gender',$this->gender);
 
 		return new CActiveDataProvider($this, array(

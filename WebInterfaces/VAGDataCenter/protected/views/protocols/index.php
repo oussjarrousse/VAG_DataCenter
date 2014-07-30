@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Protocols', 'url'=>array('create')),
+	array('label'=>'Add New Protocol', 'url'=>array('create')),
 	array('label'=>'Manage Protocols', 'url'=>array('admin')),
 );
 ?>

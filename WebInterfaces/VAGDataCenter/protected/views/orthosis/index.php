@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Orthosis', 'url'=>array('create')),
+	array('label'=>'Add New Orthosis', 'url'=>array('create')),
 	array('label'=>'Manage Orthosis', 'url'=>array('admin')),
 );
 ?>

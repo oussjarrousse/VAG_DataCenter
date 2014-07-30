@@ -18,8 +18,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Companies_idCompanies')); ?>:</b>
-	<?php echo CHtml::encode($data->Companies_idCompanies); ?>
+	<?php echo CHtml::encode($data->companiesIdCompanies->name); ?>
 	<br />
-
 
 </div>

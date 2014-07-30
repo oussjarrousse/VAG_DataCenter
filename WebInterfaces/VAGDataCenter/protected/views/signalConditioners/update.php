@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SignalConditioners', 'url'=>array('index')),
-	array('label'=>'Create SignalConditioners', 'url'=>array('create')),
-	array('label'=>'View SignalConditioners', 'url'=>array('view', 'id'=>$model->idSignalConditioners)),
-	array('label'=>'Manage SignalConditioners', 'url'=>array('admin')),
+	array('label'=>'List All Signal Conditioners', 'url'=>array('index')),
+	array('label'=>'Add New Signal Conditioner', 'url'=>array('create')),
+	array('label'=>'View This Signal Conditioner', 'url'=>array('view', 'id'=>$model->idSignalConditioners)),
+	array('label'=>'Manage Signal Conditioners', 'url'=>array('admin')),
 );
 ?>
 

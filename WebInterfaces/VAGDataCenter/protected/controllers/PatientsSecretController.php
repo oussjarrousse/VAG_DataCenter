@@ -33,12 +33,12 @@ class PatientsSecretController extends Controller
 				'users'=>array('*'),
 			),
 			//*/
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index', 'view', 'create','update'),
+			array('allow', // allow authenticated user to view
+				'actions'=>array('index', 'view'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+			array('allow', // allow admin user to perform 'admin', 'create', 'update' and 'delete' actions
+				'actions'=>array('admin','delete', 'create','update'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -97,6 +97,7 @@ class PatientsSecretController extends Controller
 			catch (Exception $e)
 			{
 				$transaction->rollback();
+				echo $e->getMessage();
 			}
 		} 
 
@@ -136,6 +137,7 @@ class PatientsSecretController extends Controller
 			}
 			catch (Exception $e)
 			{
+				echo $e->getMessage();
 				$transaction->rollback();
 			}
 		}
@@ -163,6 +165,7 @@ class PatientsSecretController extends Controller
 		}
 		catch(Exception $e)
 		{
+			echo $e->getMessage();
 			$transaction->rollback();
 		}
 		
