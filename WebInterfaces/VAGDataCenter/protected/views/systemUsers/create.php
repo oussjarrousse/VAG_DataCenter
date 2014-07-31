@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SystemUsers', 'url'=>array('index')),
-	array('label'=>'Manage SystemUsers', 'url'=>array('admin')),
+	array('label'=>'List All System Users', 'url'=>array('index')),
+	array('label'=>'Manage System Users', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create SystemUsers</h1>
+<h1>Add New System User</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

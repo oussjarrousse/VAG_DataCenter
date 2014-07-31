@@ -25,6 +25,7 @@
 		<?php echo $form->error($model,'timestamp'); ?>
 	</div>
 
+	<!--  
 	<div class="row">
 		<?php echo $form->labelEx($model,'SystemUsers_idSystemUser'); ?>
 		<?php echo $form->textField($model,'SystemUsers_idSystemUser',array('size'=>10,'maxlength'=>10)); ?>
@@ -36,7 +37,20 @@
 		<?php echo $form->textField($model,'Patients_idPatients',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'Patients_idPatients'); ?>
 	</div>
-
+	-->
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'SystemUsers_idSystemUser'); ?>
+		<?php echo $form->dropDownList($model, 'SystemUsers_idSystemUser', $model->getSystemUsersOptions()); ?>
+		<?php echo $form->error($model,'SystemUsers_idSystemUser'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'Patients_idPatients'); ?>
+		<?php echo $form->dropDownList($model, 'Patients_idPatients', $model->getPatientsOptions()); ?>
+		<?php echo $form->error($model,'Patients_idPatients'); ?>
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

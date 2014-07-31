@@ -48,6 +48,12 @@
 		<?php echo $form->passwordField($model,'password',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'Active'); ?>
+		<?php echo $form->dropDownList($model, 'active', array('1'=>'Yes','0'=>'No')); ?>
+		<?php echo $form->error($model,'Active'); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create SystemUsers', 'url'=>array('create')),
-	array('label'=>'Manage SystemUsers', 'url'=>array('admin')),
+	array('label'=>'Add New System User', 'url'=>array('create')),
+	array('label'=>'Manage System Users', 'url'=>array('admin')),
 );
 ?>
 

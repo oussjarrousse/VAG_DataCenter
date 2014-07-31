@@ -41,6 +41,10 @@ class UserIdentity extends CUserIdentity
 		{
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		}
+		elseif (! $user->active )
+		{
+			$this->errorCode=self::ERROR_USERNAME_INVALID;
+		}
 		else
 		{
 			$this->errorCode=self::ERROR_NONE;

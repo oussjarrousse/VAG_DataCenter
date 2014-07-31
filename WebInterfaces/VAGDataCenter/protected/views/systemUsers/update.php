@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SystemUsers', 'url'=>array('index')),
-	array('label'=>'Create SystemUsers', 'url'=>array('create')),
-	array('label'=>'View SystemUsers', 'url'=>array('view', 'id'=>$model->idSystemUser)),
-	array('label'=>'Manage SystemUsers', 'url'=>array('admin')),
+	array('label'=>'List All System Users', 'url'=>array('index')),
+	array('label'=>'Add New System User', 'url'=>array('create')),
+	array('label'=>'View This System User', 'url'=>array('view', 'id'=>$model->idSystemUser)),
+	array('label'=>'Manage System Users', 'url'=>array('admin')),
 );
 ?>
 

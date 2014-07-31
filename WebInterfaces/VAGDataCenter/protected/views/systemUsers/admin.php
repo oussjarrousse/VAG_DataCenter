@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SystemUsers', 'url'=>array('index')),
-	array('label'=>'Create SystemUsers', 'url'=>array('create')),
+	array('label'=>'List All System Users', 'url'=>array('index')),
+	array('label'=>'Add New System User', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -50,9 +50,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'firstname',
 		'lastname',
 		'email',
-		'password',
+		//'password',
+		array(
+			'name' => 'active',
+			'value' => '($data->active!==0)?"Yes":"No"',
+		),
 		array(
 			'class'=>'CButtonColumn',
+			'template'=>'{view}{update}'
 		),
 	),
 )); ?>

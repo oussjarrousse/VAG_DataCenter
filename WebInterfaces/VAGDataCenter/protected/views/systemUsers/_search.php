@@ -35,6 +35,11 @@
 		<?php echo $form->label($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'active'); ?>
+		<?php echo $form->dropDownList($model, 'active', array('Active'=>'1','Inactive'=>'0')); ?>
+	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>

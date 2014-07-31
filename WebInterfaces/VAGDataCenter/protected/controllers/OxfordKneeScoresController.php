@@ -1,6 +1,6 @@
 <?php
 
-class SystemUsersController extends Controller
+class OxfordKneeScoresController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,7 +27,6 @@ class SystemUsersController extends Controller
 	public function accessRules()
 	{
 		return array(
-			/*
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
@@ -36,10 +35,8 @@ class SystemUsersController extends Controller
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
-			*/
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','create', 'update','index','view', 'deactivate', 'activate'),
-				//ToDo: How to get this from Users Roles???
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -65,17 +62,16 @@ class SystemUsersController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new SystemUsers;
+		$model=new OxfordKneeScores;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['SystemUsers']))
+		if(isset($_POST['OxfordKneeScores']))
 		{
-			$model->attributes=$_POST['SystemUsers'];
-			$model->active = 1;
+			$model->attributes=$_POST['OxfordKneeScores'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idSystemUser));
+				$this->redirect(array('view','id'=>$model->idPatientsOxfordScores));
 		}
 
 		$this->render('create',array(
@@ -95,11 +91,11 @@ class SystemUsersController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['SystemUsers']))
+		if(isset($_POST['OxfordKneeScores']))
 		{
-			$model->attributes=$_POST['SystemUsers'];
+			$model->attributes=$_POST['OxfordKneeScores'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idSystemUser));
+				$this->redirect(array('view','id'=>$model->idPatientsOxfordScores));
 		}
 
 		$this->render('update',array(
@@ -112,8 +108,6 @@ class SystemUsersController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	
-	/*
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
@@ -122,32 +116,13 @@ class SystemUsersController extends Controller
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
-	*/
-	
-	public function actionDeactivate($id)
-	{
-		$model = $this->loadModel($id);
-		$model->active = 0;
-		$model->save();
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-	
-	public function actionActivate($id)
-	{
-		$model = $this->loadModel($id);
-		$model->active = 1;
-		$model->save();
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-	
+
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('SystemUsers');
+		$dataProvider=new CActiveDataProvider('OxfordKneeScores');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -158,10 +133,10 @@ class SystemUsersController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new SystemUsers('search');
+		$model=new OxfordKneeScores('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['SystemUsers']))
-			$model->attributes=$_GET['SystemUsers'];
+		if(isset($_GET['OxfordKneeScores']))
+			$model->attributes=$_GET['OxfordKneeScores'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -172,12 +147,12 @@ class SystemUsersController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return SystemUsers the loaded model
+	 * @return OxfordKneeScores the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=SystemUsers::model()->findByPk($id);
+		$model=OxfordKneeScores::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -185,11 +160,11 @@ class SystemUsersController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param SystemUsers $model the model to be validated
+	 * @param OxfordKneeScores $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='system-users-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='oxford-knee-scores-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

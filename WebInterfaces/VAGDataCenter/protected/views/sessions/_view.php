@@ -14,12 +14,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('SystemUsers_idSystemUser')); ?>:</b>
-	<?php echo CHtml::encode($data->SystemUsers_idSystemUser); ?>
+	<?php echo CHtml::encode($data->systemUsersIdSystemUser->username . ' ('.$data->systemUsersIdSystemUser->firstname. ' '. $data->systemUsersIdSystemUser->lastname.')'); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Patients_idPatients')); ?>:</b>
-	<?php echo CHtml::encode($data->Patients_idPatients); ?>
+	<?php echo CHtml::encode($data->patientsIdPatients->md5hash); ?>
 	<br />
-
-
+	
 </div>

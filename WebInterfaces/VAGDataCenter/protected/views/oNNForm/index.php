@@ -1,18 +1,18 @@
 <?php
-/* @var $this SessionsController */
+/* @var $this ONNFormController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Sessions',
+	'Onnforms',
 );
 
 $this->menu=array(
-	array('label'=>'Import Session', 'url'=>array('import')),
-	array('label'=>'Manage Sessions', 'url'=>array('admin')),
+	array('label'=>'Create ONNForm', 'url'=>array('create')),
+	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Sessions</h1>
+<h1>Onnforms</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

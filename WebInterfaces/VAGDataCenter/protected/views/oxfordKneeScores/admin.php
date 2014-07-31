@@ -1,15 +1,15 @@
 <?php
-/* @var $this SessionsController */
-/* @var $model Sessions */
+/* @var $this OxfordKneeScoresController */
+/* @var $model OxfordKneeScores */
 
 $this->breadcrumbs=array(
-	'Sessions'=>array('index'),
+	'Oxford Knee Scores'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List All Sessions', 'url'=>array('index')),
-	array('label'=>'Import Session', 'url'=>array('import')),
+	array('label'=>'List OxfordKneeScores', 'url'=>array('index')),
+	array('label'=>'Create OxfordKneeScores', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#sessions-grid').yiiGridView('update', {
+	$('#oxford-knee-scores-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Sessions</h1>
+<h1>Manage Oxford Knee Scores</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,25 +41,30 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'sessions-grid',
+	'id'=>'oxford-knee-scores-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'idSession',
-		'timestamp',
-		array(
-			'name' => 'SystemUsers_idSystemUser',
-			'value' => '$data->systemUsersIdSystemUser->username',
-			'filter' => CHTML::listData(SystemUsers::model()->findAll(),'idSystemUser','username'),
-		),
-		array(
-			'name'=>'Patients_idPatients',
-			'value' => '$data->patientsIdPatients->md5hash',
-			'filter' => CHTML::listData(Patients::model()->findAll(),'idPatients','md5hash'),
-		),		
+		'idPatientsOxfordScores',
+		'Scope',
+		'Q1',
+		'Q2',
+		'Q3',
+		'Q4',
+		/*
+		'Q5',
+		'Q6',
+		'Q7',
+		'Q8',
+		'Q9',
+		'Q10',
+		'Q11',
+		'Q12',
+		'Patients_idPatients',
+		'Sessions_idSession',
+		*/
 		array(
 			'class'=>'CButtonColumn',
-			'template'=>'{view}{update}',
 		),
 	),
 )); ?>

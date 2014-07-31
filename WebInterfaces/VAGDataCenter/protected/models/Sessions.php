@@ -76,8 +76,8 @@ class Sessions extends CActiveRecord
 		return array(
 			'idSession' => 'Id Session',
 			'timestamp' => 'Timestamp',
-			'SystemUsers_idSystemUser' => 'System Users Id System User',
-			'Patients_idPatients' => 'Patients Id Patients',
+			'SystemUsers_idSystemUser' => 'System User',
+			'Patients_idPatients' => 'Patient',
 		);
 	}
 
@@ -109,6 +109,15 @@ class Sessions extends CActiveRecord
 		));
 	}
 
+	public function getSystemUsersOptions()
+	{
+		return CHtml::listData(SystemUsers::model()->findAll(), 'idSystemUser', 'username');
+	}
+	
+	public function getPatientsOptions()
+	{
+		return CHtml::listData(Patients::model()->findAll(), 'idPatients', 'md5hash');
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

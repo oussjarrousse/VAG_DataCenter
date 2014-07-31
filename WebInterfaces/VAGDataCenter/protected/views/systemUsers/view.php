@@ -8,15 +8,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List SystemUsers', 'url'=>array('index')),
-	array('label'=>'Create SystemUsers', 'url'=>array('create')),
-	array('label'=>'Update SystemUsers', 'url'=>array('update', 'id'=>$model->idSystemUser)),
-	array('label'=>'Delete SystemUsers', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idSystemUser),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage SystemUsers', 'url'=>array('admin')),
+	array('label'=>'List All System Users', 'url'=>array('index')),
+	array('label'=>'Add New System User', 'url'=>array('create')),
+	array('label'=>'Update This System User', 'url'=>array('update', 'id'=>$model->idSystemUser)),
+	array('label'=>'Manage System Users', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View SystemUsers #<?php echo $model->idSystemUser; ?></h1>
+<h1>View System User #<?php echo $model->idSystemUser; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -27,5 +26,9 @@ $this->menu=array(
 		'lastname',
 		'email',
 		'password',
+		array(
+			'name'=>'active',
+			'value'=>$model->active?'Yes':'False',
+		),
 	),
 )); ?>
