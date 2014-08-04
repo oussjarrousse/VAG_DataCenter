@@ -16,7 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-<<<<<<< HEAD
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript">
 	var d = document;
@@ -70,9 +69,6 @@ var turn_radio = function() {
     };
 };
 	</script>
-
-=======
->>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 </head>
 
 <body>
