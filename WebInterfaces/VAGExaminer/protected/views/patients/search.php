@@ -20,7 +20,6 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-<<<<<<< HEAD
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'firstname'); ?>
@@ -38,7 +37,7 @@
 		<?php echo $form->labelEx($model,'birthdate'); ?>
 		<!--<?php echo $form->dateField($model, 'birthdate'); ?>-->
 		<?php 
-=======
+
 <table class="row">
 	<tr class="row">
 		<td><?php echo $form->labelEx($model,'firstname'); ?></td>
@@ -55,7 +54,7 @@
 		<td><?php echo $form->labelEx($model,'birthdate'); ?>
 		<!--<?php echo $form->dateField($model, 'birthdate'); ?>--></td>
 		<td><?php 
->>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
+
 			$this->widget('zii.widgets.jui.CJuiDatePicker',array(
 				'name'=>'datepicker-patientsSearchForm',
 				//'flat'=>true,
@@ -70,7 +69,7 @@
 					'yearRange'=>'1900:'.date("Y"),
 				))
 			);
-<<<<<<< HEAD
+
 		?>
 		<?php echo $form->error($model,'birthdate'); ?>
 	</div>
@@ -78,8 +77,6 @@
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
-
-=======
 		?></td>
 		<td><?php echo $form->error($model,'birthdate'); ?></td>
 	</tr>
@@ -87,7 +84,6 @@
 	<div>
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
->>>>>>> 7c2ac12422d3545e3df8c468e91e69b024f4993b
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
