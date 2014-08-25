@@ -55,16 +55,16 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAG',
 			'emulatePrepare' => true,
 			'enableParamLogging' => true,
-			'username' => '',
-			'password' => '',
+			'username' => 'DataCenter',
+			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
 			'charset' => 'utf8',
 		),
 		'dbSecret'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAGPatientsSecret',
 			'emulatePrepare' => true,
 			'enableParamLogging' => true,
-			'username' => '',
-			'password' => '',
+			'username' => 'DataCenter',
+			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
 			'charset' => 'utf8',
 			'class'=> 'CDbConnection',
 		),
@@ -86,6 +86,17 @@ return array(
 					'class'=>'CWebLogRoute',
 				),//*/
 			),
+		),
+		//http://www.bsourcecode.com/2012/12/ftp-file-transfer-using-yii/
+		'ftp'=>array(
+         	'class'=>'application.extensions.ftp.EFtpComponent',
+          	'host'=>'ftp.vibroarthrography.com',
+          	'port'=>21,
+          	'username'=>'lmu',
+          	'password'=>'d41d8cd98f00b204e9800998ecf8427e',
+          	'ssl'=>false,
+          	'timeout'=>90,
+          	'autoConnect'=>true,
 		),
 		/*
 		'authManager'=>array(

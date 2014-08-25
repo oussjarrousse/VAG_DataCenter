@@ -36,7 +36,7 @@ class SessionsController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','import','delete','listFTPFiles'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -127,7 +127,140 @@ class SessionsController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
+	
+	public function actionImport()
+	{
+		//Browse ftp server
+		$this->actionListFTPFiles();
+		//Select File
+		//Import Task
+	}
+	
+	public function actionListFTPFiles($dir='')
+	{
+		$ftp = Yii::app()->ftp;
+		$currentDir = $ftp->currentDir();
+		if(substr(strrev($dir),0,2)==='..')
+		{
+			$dir = strstr($dir ,'/..',true);
+			$dir = rtrim(strrev(strstr(strrev($dir) ,'/')),'/');
+		}	
 
+		if(!empty($dir))
+		{
+			$newDir = $currentDir.'/'.$dir;
+			$ftp->chdir($newDir);
+		}
+		
+		$currentDir = $ftp->currentDir();
+		$contents=$ftp->listFiles('.');
+		$i=0;
+		$rawList = array();//Multidimentional Array
+		if(!empty($dir))
+		{
+			$rawList[0]=array(
+					'image'=>'0', 
+					'dir'=>'..', 
+					'action'=>'sessions/listFTPFiles', 
+					'get'=>$dir.'/..',
+					'modified'=>'',
+			);
+			$i++;
+		}
+		foreach($contents as $item)
+		{
+			if($item!='.' && $item!='..')
+			{
+				$res=$ftp->size($currentDir.'/'.$item);
+				//If this is a file (not a directory)
+				if($res)
+				{
+					$fileExtension = strtolower(substr($item, strrpos($item, '.')+1));
+					if($fileExtension==='xml')
+					{
+						$rawList[$i] = array(
+							'image'=>'1',
+							'dir'=>$item,
+							'action'=>'sessions/importXMLFile',
+							'get'=>$dir.'/'.$item,
+						);
+						$i++;
+					}
+				}
+				//If this is a directory
+				else
+				{
+					$rawList[$i] = array(
+						'image'=>'0',
+						'dir'=>$item,
+						'action'=>'sessions/listFTPFiles',
+						'get'=>$dir.'/'.$item,
+					);
+					$i++;
+				}
+
+			}
+		}
+		//*
+		//print_r($rawList);
+		//*/
+		//$RESULT['FILELIST']=$filelist;
+		//$RESULT['DIRLIST']=$dirlist;
+		
+		$dataProviderOptions = array();
+		
+		$dataProviderOptions['keyField'] = 'image';
+		$dataProviderOptions['pagination'] = false;
+		
+		$sortFilesAndFolders = new CSort();
+		$sortFilesAndFolders->attributes = array(
+			'image',
+			'dir',
+			'action',
+			'get',
+		);
+		$sortFilesAndFolders->defaultOrder = array('image'=>CSort::SORT_ASC);
+
+		$dataProviderOptions['sort'] = $sortFilesAndFolders;
+		
+		
+		$dataProvider = new CArrayDataProvider($rawList, $dataProviderOptions); 
+		$this->render('browseFTP',array(
+			'dataProvider'=>$dataProvider,'dir'=>$dir
+		));
+	}
+	
+	/*
+	public function actionImport()
+	{
+		$conn_id = $this->connect2FTPserver();
+		$this->browseURL($conn_id, '.');
+		ftp_close($conn_id);
+	}
+	
+	private function connect2FTPserver()
+	{
+		$conn_id = ftp_connect('ftp.vibroarthrography.com');
+		$login_result = ftp_login($conn_id, 'lmu', 'd41d8cd98f00b204e9800998ecf8427e');
+		return $conn_id;
+	}
+	
+	public function browseURL($conn_id, $URL)
+	{
+		// set up basic connection
+		// login with username and password
+		
+		// get contents of the current directory
+		$content = ftp_nlist($conn_id, $URL);
+		foreach ($content as $entry)
+		{
+			$newURL = $URL.'/'.$entry;
+			echo "<a href=/contro$newURL>".$entry."</a></br>";
+		}
+		//return $contents;
+	}
+	*/
+	
 	/**
 	 * Manages all models.
 	 */
