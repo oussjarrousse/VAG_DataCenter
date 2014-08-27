@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List All Sessions', 'url'=>array('index')),
-	array('label'=>'Import Session', 'url'=>array('import')),
+	array('label'=>'Import Sessions', 'url'=>array('import')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

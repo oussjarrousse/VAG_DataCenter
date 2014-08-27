@@ -30,7 +30,7 @@
 	<br />
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('active')); ?>:</b>
-	<?php echo CHtml::encode($data->active?'Active','Inactive'); ?>
+	<?php echo CHtml::encode($data->active?'Active':'Inactive'); ?>
 	<br />
 
 </div>

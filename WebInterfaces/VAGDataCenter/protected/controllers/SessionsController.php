@@ -496,10 +496,18 @@ class SessionsController extends Controller
 				}
 			}
 		}
-		
+		//go ahead and create the session if it does not exist	
 		$sessionTimestamp = $xmlFiles[0]['analyzeXMLFilename']['Timestamp'];
 		$sessionName = $xmlFiles[0]['analyzeXMLFilename']['Session Name'];
 		$patient = $xmlFiles[0]['analyzeXMLFilename']['Patient'];
+		//Search for session using session name
+		//If does not exists
+			//Check if patient already in Database
+			//If not
+				//warn and exit
+			//Create it
+		//Go ahead to process the XML files
+	
 		echo $patient;
 		foreach($xmlFiles as $xmlFile)
 		{

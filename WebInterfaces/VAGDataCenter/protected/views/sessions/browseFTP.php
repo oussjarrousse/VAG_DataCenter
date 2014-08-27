@@ -7,14 +7,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Import Session', 'url'=>array('import')),
+	array('label'=>'Import Sessions', 'url'=>array('import')),
 	array('label'=>'Manage Sessions', 'url'=>array('admin')),
 );
 ?>
 <h1>Index of: <?php echo (empty($dir)?'/':$dir); ?> on the the server</h1>
 
 <div>
-<?php echo ($importable)?'Folder contains xml files, '. CHtml::link('click here to Import this session',array(
+<?php echo ($importable)?'Folder contains xml files, '. CHtml::link('click here to Import the entire session',array(
 													'sessions/importSession',
 													'dir'=>$dir
 												)):'Nothing to Import here';

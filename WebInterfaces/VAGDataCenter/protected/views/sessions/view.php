@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List All Sessions', 'url'=>array('index')),
-	array('label'=>'Import Session', 'url'=>array('import')),
+	array('label'=>'Import Sessions', 'url'=>array('import')),
 	array('label'=>'Update Sessions', 'url'=>array('update', 'id'=>$model->idSession)),
 	//array('label'=>'Delete Sessions', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idSession),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Sessions', 'url'=>array('admin')),

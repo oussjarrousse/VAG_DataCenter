@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Import Session', 'url'=>array('import')),
+	array('label'=>'Import Sessions', 'url'=>array('import')),
 	array('label'=>'Manage Sessions', 'url'=>array('admin')),
 );
 ?>

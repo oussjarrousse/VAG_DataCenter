@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List All Sessions', 'url'=>array('index')),
-	array('label'=>'Import Session', 'url'=>array('import')),
+	array('label'=>'Import Sessions', 'url'=>array('import')),
 	array('label'=>'View This Session', 'url'=>array('view', 'id'=>$model->idSession)),
 	array('label'=>'Manage Sessions', 'url'=>array('admin')),
 );

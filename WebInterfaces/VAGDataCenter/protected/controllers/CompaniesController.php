@@ -1,4 +1,4 @@
-q<?php
+<?php
 
 class CompaniesController extends Controller
 {
