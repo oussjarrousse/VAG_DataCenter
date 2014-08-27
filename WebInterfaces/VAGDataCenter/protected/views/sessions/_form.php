@@ -20,6 +20,12 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'sessionName'); ?>
+		<?php echo $form->textField($model,'sessionName'); ?>
+		<?php echo $form->error($model,'sessionName'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'timestamp'); ?>
 		<?php echo $form->textField($model,'timestamp'); ?>
 		<?php echo $form->error($model,'timestamp'); ?>

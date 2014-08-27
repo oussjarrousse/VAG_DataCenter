@@ -17,6 +17,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'sessionName'); ?>
+		<?php echo $form->textField($model,'sessionName'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->label($model,'timestamp'); ?>
 		<?php echo $form->textField($model,'timestamp'); ?>
 	</div>

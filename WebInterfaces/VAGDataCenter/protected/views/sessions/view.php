@@ -22,6 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'idSession',
+		'sessionName',
 		'timestamp',
 		array(
 			'name' => 'SystemUsers_idSystemUser',

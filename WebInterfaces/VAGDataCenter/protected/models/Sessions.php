@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'Sessions':
  * @property string $idSession
+ * @property string $sessionName
  * @property string $timestamp
  * @property string $SystemUsers_idSystemUser
  * @property string $Patients_idPatients
@@ -35,13 +36,13 @@ class Sessions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('timestamp, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
-			array('SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
+			array('timestamp, sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
+			array('$sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
 			//array('timestamp', 'type', 'type'=>'datetime', 'datetimeFormat'=>'dd-MM-yyyy hh:mm'),
 							
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idSession, timestamp, SystemUsers_idSystemUser, Patients_idPatients', 'safe', 'on'=>'search'),
+			array('idSession, sessionName, timestamp, SystemUsers_idSystemUser, Patients_idPatients', 'safe', 'on'=>'search'),
 		);
 	}
 	
@@ -75,6 +76,7 @@ class Sessions extends CActiveRecord
 	{
 		return array(
 			'idSession' => 'Id Session',
+			'sessionName' => 'Session Name',
 			'timestamp' => 'Timestamp',
 			'SystemUsers_idSystemUser' => 'System User',
 			'Patients_idPatients' => 'Patient',
@@ -100,6 +102,7 @@ class Sessions extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idSession',$this->idSession,true);
+		$criteria->compare('sessionName',$this->sessionName,true);
 		$criteria->compare('timestamp',$this->timestamp,true);
 		$criteria->compare('SystemUsers_idSystemUser',$this->SystemUsers_idSystemUser,true);
 		$criteria->compare('Patients_idPatients',$this->Patients_idPatients,true);

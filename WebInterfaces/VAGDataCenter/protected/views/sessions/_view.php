@@ -8,6 +8,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('idSession')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->idSession), array('view', 'id'=>$data->idSession)); ?>
 	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sessionName')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->sessionName), array('view', 'sessionName'=>$data->sessionName)); ?>
+	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('timestamp')); ?>:</b>
 	<?php echo CHtml::encode($data->timestamp); ?>

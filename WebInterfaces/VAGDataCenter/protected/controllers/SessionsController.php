@@ -36,7 +36,7 @@ class SessionsController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','import','delete','listFTPFiles'),
+				'actions'=>array('admin','import','importSession','delete','listFTPFiles','importXMLFile'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -127,13 +127,10 @@ class SessionsController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-	
-	public function actionImport()
+	public function actionImport()//Why is this needed???
 	{
-		//Browse ftp server
-		$this->actionListFTPFiles();
-		//Select File
-		//Import Task
+	
+		$this->actionListFTPFiles('Measurements');
 	}
 	
 	public function actionListFTPFiles($dir='')
@@ -155,111 +152,363 @@ class SessionsController extends Controller
 		$currentDir = $ftp->currentDir();
 		$contents=$ftp->listFiles('.');
 		$i=0;
+		$importable = false;
 		$rawList = array();//Multidimentional Array
 		if(!empty($dir))
 		{
 			$rawList[0]=array(
-					'image'=>'0', 
-					'dir'=>'..', 
-					'action'=>'sessions/listFTPFiles', 
+					'image'=>'0',
+					'dir'=>'..',
+					'action'=>'sessions/listFTPFiles',
 					'get'=>$dir.'/..',
-					'modified'=>'',
+					'link'=>true,
 			);
 			$i++;
 		}
+
 		foreach($contents as $item)
 		{
 			if($item!='.' && $item!='..')
 			{
 				$res=$ftp->size($currentDir.'/'.$item);
 				//If this is a file (not a directory)
+	
+	
+				//if(!$res)
+				//*
 				if($res)
 				{
 					$fileExtension = strtolower(substr($item, strrpos($item, '.')+1));
 					if($fileExtension==='xml')
 					{
 						$rawList[$i] = array(
-							'image'=>'1',
-							'dir'=>$item,
-							'action'=>'sessions/importXMLFile',
-							'get'=>$dir.'/'.$item,
+								'image'=>'1',
+								'dir'=>$item,
+								'action'=>'sessions/importXMLFile',
+								'get'=>$dir.'/'.$item,
+								'link'=>true,
 						);
+						$importable = true;
 						$i++;
 					}
 				}
-				//If this is a directory
 				else
+					//*/
+					//If this is a directory
 				{
 					$rawList[$i] = array(
-						'image'=>'0',
-						'dir'=>$item,
-						'action'=>'sessions/listFTPFiles',
-						'get'=>$dir.'/'.$item,
+							'image'=>'0',
+							'dir'=>$item,
+							'action'=>'sessions/listFTPFiles',
+							'get'=>$dir.'/'.$item,
+							'link'=>true,
+							//'importable'=>$importable,
 					);
 					$i++;
 				}
-
+	
 			}
 		}
-		//*
-		//print_r($rawList);
-		//*/
-		//$RESULT['FILELIST']=$filelist;
-		//$RESULT['DIRLIST']=$dirlist;
-		
+	
 		$dataProviderOptions = array();
-		
+	
 		$dataProviderOptions['keyField'] = 'image';
 		$dataProviderOptions['pagination'] = false;
-		
+	
 		$sortFilesAndFolders = new CSort();
 		$sortFilesAndFolders->attributes = array(
-			'image',
-			'dir',
-			'action',
-			'get',
+				'action',
+				'dir',
+				'get',
+				'image',
+				'link',
 		);
-		$sortFilesAndFolders->defaultOrder = array('image'=>CSort::SORT_ASC);
-
+		$sortFilesAndFolders->defaultOrder = array('image'=>CSort::SORT_ASC, 'dir'=>CSort::SORT_ASC);
+	
 		$dataProviderOptions['sort'] = $sortFilesAndFolders;
-		
-		
-		$dataProvider = new CArrayDataProvider($rawList, $dataProviderOptions); 
+	
+		$dataProvider = new CArrayDataProvider($rawList, $dataProviderOptions);
 		$this->render('browseFTP',array(
-			'dataProvider'=>$dataProvider,'dir'=>$dir
+				'dataProvider'=>$dataProvider,
+				'dir'=>$dir,
+				'importable'=>$importable,
 		));
 	}
 	
-	/*
-	public function actionImport()
+	private function copyRemoteXMLFile($dir)
 	{
-		$conn_id = $this->connect2FTPserver();
-		$this->browseURL($conn_id, '.');
-		ftp_close($conn_id);
-	}
-	
-	private function connect2FTPserver()
-	{
-		$conn_id = ftp_connect('ftp.vibroarthrography.com');
-		$login_result = ftp_login($conn_id, 'lmu', 'd41d8cd98f00b204e9800998ecf8427e');
-		return $conn_id;
-	}
-	
-	public function browseURL($conn_id, $URL)
-	{
-		// set up basic connection
-		// login with username and password
-		
-		// get contents of the current directory
-		$content = ftp_nlist($conn_id, $URL);
-		foreach ($content as $entry)
+		$ftp = Yii::app()->ftp;
+		$currentDir = $ftp->currentDir();
+		//$local =Yii::app()->runtimePath.'/test.xml';
+		$local =Yii::app()->runtimePath.'/'.basename($dir);
+		//$localXMLFilename = 'test.xml';
+		//echo $local ; echo " ";
+		$remote = $currentDir.'/'.$dir;
+		//echo $remote; echo " ";
+		//*
+		try
 		{
-			$newURL = $URL.'/'.$entry;
-			echo "<a href=/contro$newURL>".$entry."</a></br>";
+			$result = $ftp->get($local,$remote);
+			if($result)
+			{
+				return $local;
+	
+			}
+			else
+			{
+				echo "failed";
+				return false;
+			}
+			//the file is here
 		}
-		//return $contents;
+		catch (CException $e)
+		{
+			echo $e->getMessage();
+			return false;
+		}
 	}
-	*/
+		
+	private function analyzeXMLFilename($dir)
+	{
+		$result = array();
+		
+		$pathInfo = pathinfo($dir);
+		//var_dump($pathInfo);
+		//extract all information possible from $dir
+		//Get the sessionName from the path whatever is before the last /
+		$result['Basename'] =$pathInfo['basename'];
+		$result['Filename'] = $pathInfo['filename'];
+		$result['Dirname'] = $pathInfo['dirname'];
+		$result['Extension'] = $pathInfo['extension'];
+		
+		$xmlFileBasename = $pathInfo['filename'];
+		$xmlFileBasenameExpolded = explode('-',$xmlFileBasename);
+		$patientMD5Hash = array_shift($xmlFileBasenameExpolded);//
+		$result['Patient'] = $patientMD5Hash; 
+		$result['Knee'] = array_shift($xmlFileBasenameExpolded)==='L'?'0':'1';
+		$year = array_shift($xmlFileBasenameExpolded);
+		$month = array_shift($xmlFileBasenameExpolded);
+		$day = array_shift($xmlFileBasenameExpolded);
+		$hour = array_shift($xmlFileBasenameExpolded);
+		$minute = array_shift($xmlFileBasenameExpolded);
+		//echo $sessionMinute ;
+		$fileTimestamp = date("Y-m-d H:i:s",mktime($hour,$minute,"00",$month,$day,$year));
+		$result['Timestamp'] = $fileTimestamp;
+		$signalAquisitionSensorName = array_shift($xmlFileBasenameExpolded);
+		$result['Sensor Name'] = $signalAquisitionSensorName;
+		$signalAquisitionSensorLocation = array_shift($xmlFileBasenameExpolded);
+		$result['Sensor Position'] = $signalAquisitionSensorLocation;
+		$signalAquisitionOrthosis = array_shift($xmlFileBasenameExpolded);
+		$result['Orthosis'] = $signalAquisitionOrthosis;
+		$signalAquisitionProtocolName = implode('-',$xmlFileBasenameExpolded);
+		$result['Protocol'] = $signalAquisitionProtocolName;
+		/*
+		 echo $patientMD5Hash; echo " ";
+		echo $signalAquisitionKnee; echo " ";
+		echo $signalAquisitionSensorName ; echo " ";
+		echo $signalAquisitionSensorLocation; echo " ";
+		echo $signalAquisitionOrthosis; echo " ";
+		echo $signalAquisitionProtocolName; echo " ";
+		echo $sessionTimestamp;echo " ";
+		*/
+		//Get session name from the folder...
+		//echo strstr(dirname($dir),'Session');
+		$result['Session Name']= strrev(strstr(strrev(strstr($pathInfo['dirname'],'Session-')), '-noisseS',true));
+		//var_dump($result);
+		return $result;
+	}
+
+	private function analyzeXMLFileContent($dir)
+	{
+		//Get xml file content
+		$xml = simplexml_load_file($dir)or die("Error: Can not create object");
+		
+		//var_dump($xml);
+		
+		//Check validity
+		$xmlRoot = $xml->getName();
+		if($xmlRoot !== "vagdata")
+			return false;
+		//echo $xmlRoot;
+		//Get Version of vagdata xml file
+		$vagdataVersion = $xml['version'];
+		
+		//Currently no need to check more ;-)
+		
+		$result = array();
+
+		//parse xml file content
+		$signalFilename = $xml->signal;
+		$signalFilename = str_replace('\\', '/', $signalFilename );
+		$signalPathInfo = pathinfo($signalFilename);
+		
+		$result['Dirname']=$signalPathInfo['dirname'];
+		$result['Basename']=$signalPathInfo['basename'];
+		$result['Extension']=$signalPathInfo['extension'];
+		$result['Filename']=$signalPathInfo['filename'];
+		
+		$fileTimestamp = (string)$xml->meta->timestamp;
+		$fileTimestampExploded = explode('-',$fileTimestamp);
+		$result['Timestamp'] =date("Y-m-d H:i:s",mktime(
+				$fileTimestampExploded[3], 	//hours
+				$fileTimestampExploded[4], 	//minutes
+				0,							//seconds
+				$fileTimestampExploded[1],	//month
+				$fileTimestampExploded[2],	//day
+				$fileTimestampExploded[0]));//year
+		$sessionName = (string)$xml->meta->session;
+		$result['Session Name'] = $sessionName;
+		
+		$patientMD5Hash = (string)$xml->meta->md5hash;
+		$result['Patient'] = $patientMD5Hash;
+		$knee = (string)$xml->meta->knee;
+		$result['Knee'] = $knee==='L'?'0':'1';
+		$result['Protocol'] = (string)$xml->meta->protocol;
+		$result['Sensor Name'] = (string)$xml->meta->sensor->name;
+		$result['Sensor Position'] = (string)$xml->meta->sensor->position;
+		$result['Orthosis'] = (string)$xml->meta->orthosis->name;
+		
+		//var_dump($result);
+		return $result;
+		//Done parsing
+	}
+	
+	public function actionImportXMLFile($dir)
+	{
+		//Get the file to local dir for reading
+		try{
+			$local = $this->copyRemoteXMLFile($dir);
+		}
+		catch(CException $e)
+		{
+			echo $e->getMessage();
+		}
+		
+		//Analyzing the file
+		//Extract info from the filename and path
+		$analyzedXMLFilename = $this->analyzeXMLFilename($dir);
+		$analyzedXMLFileContent = $this->analyzeXMLFileContent($local);
+		//Cleanup
+		//done with the file
+		unlink($local);
+		
+		//Sanity Check
+		//compare content with filename (alert user & filename wins)
+		if($analyzedXMLFilename['Session Name']!==$analyzedXMLFileContent['Session Name'])
+		{
+			echo "Sanity Check Error: Session Name";
+		}
+		if($analyzedXMLFilename['Patient']!==$analyzedXMLFileContent['Patient'])
+		{
+			echo "Sanity Check Error: Patient";
+		}
+		if($analyzedXMLFilename['Knee']!==$analyzedXMLFileContent['Knee'])
+		{
+			echo "Sanity Check Error: Knee";
+		}
+		if($analyzedXMLFilename['Orthosis']!==$analyzedXMLFileContent['Orthosis'])
+		{
+			echo "Sanity Check Error: Orthosis";
+		}
+		if($analyzedXMLFilename['Sensor Name']!==$analyzedXMLFileContent['Sensor Name'])
+		{
+			echo "Sanity Check Error: Sensor Name";
+		}
+		if($analyzedXMLFilename['Sensor Position']!==$analyzedXMLFileContent['Sensor Position'])
+		{
+			echo "Sanity Check Error: Sensor Name";
+		}
+		//insert session information and signal acquisition to the database
+		
+		$sessionModel = new Sessions;
+		$signalAcquisitionModel = new SignalAcquisition;
+		
+		/*
+		* @property string $idSession
+		* @property string $sessionName
+		* @property string $timestamp
+		* @property string $SystemUsers_idSystemUser
+		* @property string $Patients_idPatients
+		//*/
+		
+		/*
+		* @property string $idSignalAcquisition
+		* @property string $Patients_idPatients
+		* @property string $Sessions_idSession
+		* @property integer $knee
+		* @property integer $position
+		* @property string $Sensors_idSensors
+		* @property string $Protocols_idProtocols
+		* @property string $SignalConditioners_idSignalConditioners
+		* @property string $Orthosis_idOrthosis
+		* @property double $samplesRate
+		* @property integer $bitsPerSample
+		* @property string $startTime
+		* @property string $endTime
+		* @property string $filename
+		//*/
+	}
+	
+	public function actionImportSession($dir)//Why is this needed???
+	{
+		echo $dir;
+		//Get the xml files list
+		$ftp = Yii::app()->ftp;
+		$currentDir = $ftp->currentDir();
+		if(substr(strrev($dir),0,2)==='..')
+		{
+			$dir = strstr($dir ,'/..',true);
+			$dir = rtrim(strrev(strstr(strrev($dir) ,'/')),'/');
+		}	
+
+		if(!empty($dir))
+		{
+			$newDir = $currentDir.'/'.$dir;
+			$ftp->chdir($newDir);
+		}
+		
+		$currentDir = $ftp->currentDir();
+		$contents=$ftp->listFiles('.');
+		$xmlFiles=array();
+		//Go over all xml files
+		$i=0;
+		foreach($contents as $item)
+		{
+			if($item!='.' && $item!='..')
+			{
+				$fileSize=$ftp->size($currentDir.'/'.$item);
+				if($fileSize)
+				{
+					$fileExtension = strtolower(substr($item, strrpos($item, '.')+1));
+					if($fileExtension==='xml')
+					{
+						//get the file
+						$local = $this->copyRemoteXMLFile($item);
+						//$xmlFiles[$i]=$dir.'/'.$item;
+						$xmlFiles[$i]['dir']=$dir.'/'.$item;
+						$xmlFiles[$i]['analyzeXMLFilename']=$this->analyzeXMLFilename($xmlFiles[$i]['dir']);
+						$xmlFiles[$i]['analyzeXMLContent']=$this->analyzeXMLFileContent($local);
+						unlink($local);
+						//Check for sanity
+						//Fill a signalAquisition model and save it  
+						$i++;
+					}
+				}
+			}
+		}
+		
+		$sessionTimestamp = $xmlFiles[0]['analyzeXMLFilename']['Timestamp'];
+		$sessionName = $xmlFiles[0]['analyzeXMLFilename']['Session Name'];
+		$patient = $xmlFiles[0]['analyzeXMLFilename']['Patient'];
+		echo $patient;
+		foreach($xmlFiles as $xmlFile)
+		{
+			echo " ";	
+		}
+		sort($xmlFiles);
+		var_dump($xmlFiles);
+		//Get the time of the first file
+	}
 	
 	/**
 	 * Manages all models.
