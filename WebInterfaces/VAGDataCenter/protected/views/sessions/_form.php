@@ -27,24 +27,28 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'timestamp'); ?>
+		<?php
+		//* 
+			$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+				'name'=>'datepicker-patientsSecretForm',
+				//'flat'=>true,
+				'attribute'=>'timestamp',
+				'model' => $model,
+				'options'=>array(
+					'dateFormat'=>'dd.mm.yy',
+					'maxDate'=>'new Date()', // Today
+					'minDate'=>'15.11.2013',
+					'showAnim'=>'blind',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+					'changeYear'=>true,
+					'yearRange'=>'2014:'.date("Y"),
+				))
+			);
+		//*/
+		?>
 		<?php echo $form->textField($model,'timestamp'); ?>
 		<?php echo $form->error($model,'timestamp'); ?>
 	</div>
 
-	<!--  
-	<div class="row">
-		<?php echo $form->labelEx($model,'SystemUsers_idSystemUser'); ?>
-		<?php echo $form->textField($model,'SystemUsers_idSystemUser',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'SystemUsers_idSystemUser'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'Patients_idPatients'); ?>
-		<?php echo $form->textField($model,'Patients_idPatients',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'Patients_idPatients'); ?>
-	</div>
-	-->
-	
 	<div class="row">
 		<?php echo $form->labelEx($model,'SystemUsers_idSystemUser'); ?>
 		<?php echo $form->dropDownList($model, 'SystemUsers_idSystemUser', $model->getSystemUsersOptions()); ?>

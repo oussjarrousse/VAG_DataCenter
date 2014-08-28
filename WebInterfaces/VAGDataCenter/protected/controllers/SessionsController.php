@@ -133,7 +133,7 @@ class SessionsController extends Controller
 		$this->actionListFTPFiles('Measurements');
 	}
 	
-	public function actionListFTPFiles($dir='')
+	public function actionListFTPFiles($dir='',$patientMD5Hash='')
 	{
 		$ftp = Yii::app()->ftp;
 		$currentDir = $ftp->currentDir();
@@ -232,6 +232,7 @@ class SessionsController extends Controller
 				'dataProvider'=>$dataProvider,
 				'dir'=>$dir,
 				'importable'=>$importable,
+				'patientMD5Hash'=>$patientMD5Hash,
 		));
 	}
 	
@@ -271,7 +272,6 @@ class SessionsController extends Controller
 	private function analyzeXMLFilename($dir)
 	{
 		$result = array();
-		
 		$pathInfo = pathinfo($dir);
 		//var_dump($pathInfo);
 		//extract all information possible from $dir
@@ -296,21 +296,20 @@ class SessionsController extends Controller
 		$result['Timestamp'] = $fileTimestamp;
 		$signalAquisitionSensorName = array_shift($xmlFileBasenameExpolded);
 		$result['Sensor Name'] = $signalAquisitionSensorName;
-		$signalAquisitionSensorLocation = array_shift($xmlFileBasenameExpolded);
-		$result['Sensor Position'] = $signalAquisitionSensorLocation;
+		$result['Sensor Position'] = array_shift($xmlFileBasenameExpolded);
 		$signalAquisitionOrthosis = array_shift($xmlFileBasenameExpolded);
 		$result['Orthosis'] = $signalAquisitionOrthosis;
 		$signalAquisitionProtocolName = implode('-',$xmlFileBasenameExpolded);
 		$result['Protocol'] = $signalAquisitionProtocolName;
 		/*
-		 echo $patientMD5Hash; echo " ";
-		echo $signalAquisitionKnee; echo " ";
+		echo $patientMD5Hash; echo " ";
+		echo $result['Knee']; echo " ";
 		echo $signalAquisitionSensorName ; echo " ";
 		echo $signalAquisitionSensorLocation; echo " ";
 		echo $signalAquisitionOrthosis; echo " ";
 		echo $signalAquisitionProtocolName; echo " ";
-		echo $sessionTimestamp;echo " ";
-		*/
+		echo $fileTimestamp;echo " ";
+		//*/
 		//Get session name from the folder...
 		//echo strstr(dirname($dir),'Session');
 		$result['Session Name']= strrev(strstr(strrev(strstr($pathInfo['dirname'],'Session-')), '-noisseS',true));
@@ -367,7 +366,6 @@ class SessionsController extends Controller
 		$result['Sensor Name'] = (string)$xml->meta->sensor->name;
 		$result['Sensor Position'] = (string)$xml->meta->sensor->position;
 		$result['Orthosis'] = (string)$xml->meta->orthosis->name;
-		
 		//var_dump($result);
 		return $result;
 		//Done parsing
@@ -375,6 +373,11 @@ class SessionsController extends Controller
 	
 	public function actionImportXMLFile($dir)
 	{
+		echo "Hello";
+		if(! $dir)
+		{
+			$this->actionImport();
+		}
 		//Get the file to local dir for reading
 		try{
 			$local = $this->copyRemoteXMLFile($dir);
@@ -394,32 +397,42 @@ class SessionsController extends Controller
 		
 		//Sanity Check
 		//compare content with filename (alert user & filename wins)
+		$sanity = true;
 		if($analyzedXMLFilename['Session Name']!==$analyzedXMLFileContent['Session Name'])
 		{
 			echo "Sanity Check Error: Session Name";
+			$sanity = false;
 		}
 		if($analyzedXMLFilename['Patient']!==$analyzedXMLFileContent['Patient'])
 		{
 			echo "Sanity Check Error: Patient";
+			$sanity = false;
 		}
 		if($analyzedXMLFilename['Knee']!==$analyzedXMLFileContent['Knee'])
 		{
 			echo "Sanity Check Error: Knee";
+			$sanity = false;
 		}
 		if($analyzedXMLFilename['Orthosis']!==$analyzedXMLFileContent['Orthosis'])
 		{
 			echo "Sanity Check Error: Orthosis";
+			$sanity = false;
 		}
 		if($analyzedXMLFilename['Sensor Name']!==$analyzedXMLFileContent['Sensor Name'])
 		{
 			echo "Sanity Check Error: Sensor Name";
+			$sanity = false;
 		}
 		if($analyzedXMLFilename['Sensor Position']!==$analyzedXMLFileContent['Sensor Position'])
 		{
 			echo "Sanity Check Error: Sensor Name";
+			$sanity = false;
 		}
 		//insert session information and signal acquisition to the database
-		
+		if(! $sanity)
+		{
+			return;
+		}
 		$sessionModel = new Sessions;
 		$signalAcquisitionModel = new SignalAcquisition;
 		
@@ -444,14 +457,16 @@ class SessionsController extends Controller
 		* @property double $samplesRate
 		* @property integer $bitsPerSample
 		* @property string $startTime
-		* @property string $endTime
 		* @property string $filename
 		//*/
 	}
 	
-	public function actionImportSession($dir)//Why is this needed???
+	public function actionImportSession($dir='')//Why is this needed???
 	{
-		echo $dir;
+		if(empty($dir) || !$dir)
+		{
+			$this->actionImport();
+		}
 		//Get the xml files list
 		$ftp = Yii::app()->ftp;
 		$currentDir = $ftp->currentDir();
@@ -460,12 +475,9 @@ class SessionsController extends Controller
 			$dir = strstr($dir ,'/..',true);
 			$dir = rtrim(strrev(strstr(strrev($dir) ,'/')),'/');
 		}	
-
-		if(!empty($dir))
-		{
-			$newDir = $currentDir.'/'.$dir;
-			$ftp->chdir($newDir);
-		}
+		
+		$newDir = $currentDir.'/'.$dir;
+		$ftp->chdir($newDir);
 		
 		$currentDir = $ftp->currentDir();
 		$contents=$ftp->listFiles('.');
@@ -490,32 +502,185 @@ class SessionsController extends Controller
 						$xmlFiles[$i]['analyzeXMLContent']=$this->analyzeXMLFileContent($local);
 						unlink($local);
 						//Check for sanity
+						$sanity = true;
+						if($xmlFiles[$i]['analyzeXMLFilename']['Session Name']!==$xmlFiles[$i]['analyzeXMLContent']['Session Name'])
+						{
+							echo "Sanity Check Error: Session Name";
+							$sanity = false;
+						}
+						if($xmlFiles[$i]['analyzeXMLFilename']['Patient']!==$xmlFiles[$i]['analyzeXMLContent']['Patient'])
+						{
+							echo "Sanity Check Error: Patient ";
+							echo $xmlFiles[$i]['analyzeXMLFilename']['Patient'];
+							echo " ";
+							echo $xmlFiles[$i]['dir'];
+							$sanity = false;
+						}
+						if($xmlFiles[$i]['analyzeXMLFilename']['Knee']!==$xmlFiles[$i]['analyzeXMLContent']['Knee'])
+						{
+							echo "Sanity Check Error: Knee";
+							$sanity = false;
+						}
+						if($xmlFiles[$i]['analyzeXMLFilename']['Orthosis']!==$xmlFiles[$i]['analyzeXMLContent']['Orthosis'])
+						{
+							echo "Sanity Check Error: Orthosis ";
+							echo $xmlFiles[$i]['analyzeXMLFilename']['Orthosis'];
+							echo " ";
+							echo $xmlFiles[$i]['analyzeXMLContent']['Orthosis'];
+							echo " ";
+							echo $xmlFiles[$i]['dir'];
+							$sanity = false;
+						}
+						if($xmlFiles[$i]['analyzeXMLFilename']['Sensor Name']!==$xmlFiles[$i]['analyzeXMLContent']['Sensor Name'])
+						{
+							echo "Sanity Check Error: Sensor Name";
+							echo $xmlFiles[$i]['dir'];
+							$sanity = false;
+						}
+						if($xmlFiles[$i]['analyzeXMLFilename']['Sensor Position']!==$xmlFiles[$i]['analyzeXMLContent']['Sensor Position'])
+						{
+							echo "Sanity Check Error: Sensor Position";
+							echo $xmlFiles[$i]['analyzeXMLFilename']['Sensor Position'];
+							echo " ";
+							echo $xmlFiles[$i]['dir'];
+							$sanity = false;
+						}
+						//insert session information and signal acquisition to the database
+						if(! $sanity)
+						{
+							return;
+						}
+						
 						//Fill a signalAquisition model and save it  
 						$i++;
 					}
 				}
 			}
 		}
-		//go ahead and create the session if it does not exist	
+		if($i===0)
+		{
+			Yii::app()->user->setFlash('error.bad','Something went really wrong as no xml files were found!');
+			$this->redirect(array('sessions/listFTPFiles','dir'=>$dir));
+		}
+		//go ahead and create the session if it does not exist
+		//Find the smallest time stamp of a session... 
 		$sessionTimestamp = $xmlFiles[0]['analyzeXMLFilename']['Timestamp'];
+		foreach($xmlFiles as $xmlFile)
+		{	
+			$temp = $xmlFile['analyzeXMLFilename']['Timestamp'];
+			if($temp < $sessionTimestamp)
+			{
+				//echo $temp;
+				$sessionTimestamp=$temp;
+			}
+		}
 		$sessionName = $xmlFiles[0]['analyzeXMLFilename']['Session Name'];
-		$patient = $xmlFiles[0]['analyzeXMLFilename']['Patient'];
+		$patientMD5Hash = $xmlFiles[0]['analyzeXMLFilename']['Patient'];
 		//Search for session using session name
-		//If does not exists
+		$session = Sessions::model()->findByAttributes(array('sessionName'=>$sessionName));
+		if(empty($session))	//If does not exists, create a new session
+		{
+			//but first...
 			//Check if patient already in Database
-			//If not
-				//warn and exit
-			//Create it
-		//Go ahead to process the XML files
-	
-		echo $patient;
+			$patient = Patients::model()->findByMD5Hash($patientMD5Hash);
+			if(empty($patient))
+			{
+				Yii::app()->user->setFlash('error.patient.not.fount','Patient not found in the Database. ');
+				$this->redirect(array('sessions/listFTPFiles','dir'=>$dir, 'patientMD5Hash'=>$patientMD5Hash));
+			}
+			//echo $patient->idPatients;
+			//echo Yii::App()->user->id; echo " ";
+
+			$session = new Sessions();
+			$session->timestamp = $sessionTimestamp;
+			$session->sessionName = $sessionName;
+			$session->Patients_idPatients = $patient->idPatients;
+			$session->SystemUsers_idSystemUser = Yii::App()->user->id;
+			//var_dump($session);
+			//*
+			try
+			{
+				if(!$session->Save())
+					throw new CException('Session save failed.');
+			}
+			catch(CException $e)
+			{
+				Yii::app()->user->setFlash('error.save.failed',$e->getMessage());
+				$this->redirect(array('sessions/listFTPFiles','dir'=>$dir, 'patientMD5Hash'=>$patientMD5Hash));
+			}
+			//*/
+			//$this->redirect(array('view','id'=>$model->idPatientsSecret));
+			//$this->redirect(array('sessions/listFTPFiles','dir'=>$dir));
+		}
+		//Go ahead to process the XML files and add signalAcquisitions
+		sort($xmlFiles);
 		foreach($xmlFiles as $xmlFile)
 		{
-			echo " ";	
+			//var_dump($xmlFile);
+			$filename = $xmlFile['analyzeXMLFilename']['Dirname'].'/'.$xmlFile['analyzeXMLFilename']['Filename'].'.wav';
+			//check if the file is already in the system
+			$signal = SignalAcquisition::model()->findByAttributes(array('filename'=>$filename));
+			if(empty($signal))
+			{
+				$signal = new SignalAcquisition();
+				$signal->Patients_idPatients = Patients::model()->findByMD5Hash($xmlFile['analyzeXMLFilename']['Patient'])->idPatients;
+				$signal->Sessions_idSession = $session->idSession;
+				$signal->knee = $xmlFile['analyzeXMLFilename']['Knee'];
+				$position = $xmlFile['analyzeXMLFilename']['Sensor Position'];
+				if($position == 'Patella')
+				{
+					$signal->position = 0;
+				}
+				elseif ($position =='TibiaplateauMedial')
+				{
+					$signal->position = 1;
+				}
+				elseif ($position == 'TibiaplateauLateral')
+				{
+					$signal->position = 2;
+				}
+				else
+				{
+					echo 'error what the hell is: $signalAquisitionSensorPosition ';
+					return;
+				}
+				$sensor = Sensors::model()->findByAttributes(array('name'=>$xmlFile['analyzeXMLFilename']['Sensor Name']));
+				if(empty($sensor))
+				{
+					echo 'problem with the sensor: '.$xmlFile['analyzeXMLFilename']['Sensor Name'].' ';
+					echo $i;
+					return;
+				}
+				$signal->Sensors_idSensors = $sensor->idSensors;
+				//echo $xmlFile['analyzeXMLFilename']['Protocol'];
+				$protocol = Protocols::model()->findByAttributes(array('name'=>$xmlFile['analyzeXMLFilename']['Protocol']));
+				//var_dump($protocol);
+				$signal->Protocols_idProtocols = $protocol->idProtocols;
+				$signal->SignalConditioners_idSignalConditioners = 1;
+				$signal->samplesRate = 16000;
+				$signal->bitsPerSample = 24;
+				$signal->startTime = $xmlFile['analyzeXMLFilename']['Timestamp'];
+				$orthosis = Orthosis::model()->findByAttributes(array('name'=>$xmlFile['analyzeXMLFilename']['Orthosis']));
+				if(empty($orthosis))
+				{
+					echo 'problem with the orthosis: '.$xmlFile['analyzeXMLFilename']['Orthosis'].' ';
+					echo $i;
+					return;
+				}
+				$signal->Orthosis_idOrthosis = $orthosis->idOrthosis;
+				$signal->filename = $filename;
+				$signal->save();
+				//var_dump($signal); 
+			}
+			//var_dump($signal);
+			//return;
 		}
-		sort($xmlFiles);
-		var_dump($xmlFiles);
+		$this->redirect(array('sessions/index'));
+		//sort($xmlFiles);
+		//var_dump($xmlFiles);
 		//Get the time of the first file
+		//$this->redirect(array('sessions/index'));
+		//$this->redirect(array('sessions/index'));
 	}
 	
 	/**
