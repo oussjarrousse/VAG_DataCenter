@@ -54,5 +54,5 @@ should you have any questions.</p>
 <?php echo CHtml::link('OxfordKneeScores (Under Construction)',array('OxfordKneeScores/admin')); ?>
 </p>
 <p>
-<?php echo CHtml::link('Signals (Under Construction)',array('SignalAcquisitions/admin')); ?>
+<?php echo CHtml::link('Signals (Under Construction)',array('SignalAcquisition/admin')); ?>
 </p>
