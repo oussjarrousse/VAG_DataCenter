@@ -16,7 +16,6 @@
  * @property double $samplesRate
  * @property integer $bitsPerSample
  * @property string $startTime
- * @property string $endTime
  * @property string $filename
  *
  * The followings are the available model relations:
@@ -45,7 +44,7 @@ class SignalAcquisition extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Patients_idPatients, Sessions_idSession, knee, position, Sensors_idSensors, Protocols_idProtocols, SignalConditioners_idSignalConditioners, Orthosis_idOrthosis, samplesRate, bitsPerSample, startTime, endTime, filename', 'required'),
+			array('Patients_idPatients, Sessions_idSession, knee, position, Sensors_idSensors, Protocols_idProtocols, SignalConditioners_idSignalConditioners, Orthosis_idOrthosis, samplesRate, bitsPerSample, startTime, filename', 'required'),
 			array('knee, bitsPerSample, samplesRate', 'numerical', 'integerOnly'=>true),
 			//0 = Left, 1 = Right
 			array('knee','numerical','min'=>0, 'max'=>1),
@@ -54,7 +53,7 @@ class SignalAcquisition extends CActiveRecord
 			array('filename', 'length', 'max'=>2048),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idSignalAcquisition, Patients_idPatients, Sessions_idSession, Sensors_idSensors, Protocols_idProtocols, SignalConditioners_idSignalConditioners, Orthosis_idOrthosis, startTime, endTime, knee, position, bitsPerSample, filename, samplesRate', 'safe', 'on'=>'search'),
+			array('idSignalAcquisition, Patients_idPatients, Sessions_idSession, Sensors_idSensors, Protocols_idProtocols, SignalConditioners_idSignalConditioners, Orthosis_idOrthosis, startTime, knee, position, bitsPerSample, filename, samplesRate', 'safe', 'on'=>'search'),
 		);
 	}
 	/*
@@ -114,7 +113,6 @@ class SignalAcquisition extends CActiveRecord
 			'samplesRate' => 'Samples Rate (Sample/Second)',
 			'bitsPerSample' => 'Bits Per Sample',
 			'startTime' => 'Start Time',
-			'endTime' => 'End Time',
 			'filename' => 'Filename',
 		);
 	}
@@ -149,7 +147,6 @@ class SignalAcquisition extends CActiveRecord
 		$criteria->compare('samplesRate',$this->samplesRate);
 		$criteria->compare('bitsPerSample',$this->bitsPerSample);
 		$criteria->compare('startTime',$this->startTime,true);
-		$criteria->compare('endTime',$this->endTime,true);
 		$criteria->compare('filename',$this->filename,true);
 
 		return new CActiveDataProvider($this, array(

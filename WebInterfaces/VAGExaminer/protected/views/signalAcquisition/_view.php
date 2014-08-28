@@ -38,14 +38,6 @@
 	<?php echo CHtml::encode($data->startTime); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('endTime')); ?>:</b>
-	<?php echo CHtml::encode($data->endTime); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('knee')); ?>:</b>
-	<?php echo CHtml::encode($data->knee); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('iterations')); ?>:</b>
 	<?php echo CHtml::encode($data->iterations); ?>
 	<br />

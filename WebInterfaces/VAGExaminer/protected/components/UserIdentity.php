@@ -7,8 +7,8 @@
  */
 class UserIdentity extends CUserIdentity
 {
-	
 	private $idSystemUser;
+	
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -29,11 +29,14 @@ class UserIdentity extends CUserIdentity
 		{
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		}
+		elseif (! $user->active )
+		{
+			$this->errorCode=self::ERROR_USERNAME_INVALID;
+		}
 		else
 		{
 			$this->errorCode=self::ERROR_NONE;
 			$this->idSystemUser=$user->idSystemUser;
-			echo"Hello";
 		}
 		return !$this->errorCode;
 		/*
@@ -44,12 +47,12 @@ class UserIdentity extends CUserIdentity
 		);
 		if(!isset($users[$this->username]))
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
+		elseif($users[$this->password]!==$this->password)
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
 			$this->errorCode=self::ERROR_NONE;
 		return !$this->errorCode;
-		*/
+		//*/
 	}
 	
 	public function getId()

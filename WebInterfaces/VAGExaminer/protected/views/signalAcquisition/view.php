@@ -29,7 +29,6 @@ $this->menu=array(
 		'SignalConditioners_idSignalConditioners',
 		'Orthosis_idOrthosis',
 		'startTime',
-		'endTime',
 		'knee',
 		'iterations',
 		'bitsPerSample',

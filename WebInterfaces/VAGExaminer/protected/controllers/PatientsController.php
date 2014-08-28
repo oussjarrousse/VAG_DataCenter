@@ -57,7 +57,8 @@ class PatientsController extends Controller
 			$model->md5= md5($model->firstname . $model->lastname . date('Ymd',strtotime($model->birthdate)));
 			
 			//check if the record already exists
-			$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
+			//$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
+			$patient = Patients::model()->findByMD5Hash($model->md5);
 			if(!empty($patient))
 			{
 				//Set the Session idPatient
@@ -68,21 +69,21 @@ class PatientsController extends Controller
 			try
 			{
 				if(!$model->save())
-					throw new Exception('PatientsSecret model save failed');					
+					throw new CException('PatientsSecret model save failed');					
 				$patient = new Patients;
 				$patient->idPatients = $model->idPatientsSecret;
 				$patient->md5hash = $model->md5;
 				$patient->birthdate = $model->birthdate;
 				$patient->gender = $model->gender;
 				if(!$patient->save())
-					throw new Exception('Patients model save failed');
+					throw new CException('Patients model save failed');
 				
 				$transaction->commit();
 				//Redirect to the right view
 				Yii::app()->session['idPatient'] = $patient->idPatients;
 				$this->redirect(array('Sessions/List'));
 			}
-			catch (Exception $e)
+			catch (CException $e)
 			{
 				//$model->birthdate = date ('d.m.Y', strtotime($model->birthdate));
 				echo $e->getMessage();
@@ -120,7 +121,8 @@ class PatientsController extends Controller
 			$md5 = md5($model->firstname . $model->lastname . date('Ymd',strtotime($model->birthdate)));
 			$condition='$md5hash=1';
 			$params=array('');
-			$patient = Patients::model()->findByAttributes(array('md5hash'=>$md5));
+			//$patient = Patients::model()->findByAttributes(array('md5hash'=>$md5));
+			$patient = Patients::model()->findByMD5Hash($md5);
 			if (empty($patient)) 
 			{
 				// No patient found!

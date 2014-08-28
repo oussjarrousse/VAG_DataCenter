@@ -17,4 +17,4 @@ $this->breadcrumbs=array(
 <h1>New SignalAcquisition</h1>
 
 <?php //$this->renderPartial('_form', array('model'=>$model)); ?>
-<?php $this->renderPartial('_formForm', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

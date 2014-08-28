@@ -169,7 +169,7 @@ class SessionsController extends Controller
 			$this->redirect(array('Patients/Search'));
 		}
 		
-		$renderedPatientView = $this->renderPartial('/patients/view', array('model'=>$patientModel), true);
+		//$renderedPatientView = $this->renderPartial('/patients/view', array('model'=>$patientModel), true);
 		
 		$criteria = new CDbCriteria();
 		$criteria->compare('Patients_idPatients',$idPatient);

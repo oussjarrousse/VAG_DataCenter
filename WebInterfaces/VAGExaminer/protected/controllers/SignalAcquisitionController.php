@@ -67,8 +67,8 @@ class SignalAcquisitionController extends Controller
 		$modelForm->Sessions_idSession = $idSession;
 		$modelForm->bitsPerSample=32;
 		$modelForm->samplesRate=16000;
-		$modelForm->Sensors_idSensors_patella = 1;
-		$modelForm->Sensors_idSensors_tibialPlateauMedial = 1;
+		$modelForm->Sensors_idSensors_patella = -1;
+		$modelForm->Sensors_idSensors_tibialPlateauMedial = -1;
 		$modelForm->Sensors_idSensors_tibialPlateauLateral = -1;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -76,10 +76,19 @@ class SignalAcquisitionController extends Controller
 		if(isset($_POST['SignalAcquisitionForm']))
 		{
 			$modelForm->attributes=$_POST['SignalAcquisitionForm'];
-			if($modelForm->Sensors_idSensors_patella == -1 && $modelForm->Sensors_idSensors_tibialPlateauMedial == -1 && $modelForm->Sensors_idSensors_tibialPlateauLateral == -1)
+			if(! $modelForm->validate())
 			{
-				echo "No Sensors";
+				$this->render('create',array(
+						'model'=>$modelForm,
+				));
 			}
+			
+			//Generate XML files
+			
+			//Render Some View with Ajax
+			
+			
+			/*			
 			else
 			{
 				$transaction = Yii::app()->db->beginTransaction();
@@ -99,7 +108,7 @@ class SignalAcquisitionController extends Controller
 						$model->Orthosis_idOrthosis= $modelForm->Orthosis_idOrthosis;
 						$model->Protocols_idProtocols=$modelForm->Protocols_idProtocols;
 						if(!$model->Save())
-							throw new Exception('save failed');
+							throw new CException('save failed');
 						//XML Magic;
 					}
 					if($modelForm->Sensors_idSensors_tibialPlateauMedial!= -1)
@@ -116,7 +125,7 @@ class SignalAcquisitionController extends Controller
 						$model->Orthosis_idOrthosis= $modelForm->Orthosis_idOrthosis;
 						$model->Protocols_idProtocols=$modelForm->Protocols_idProtocols;
 						if(!$model->Save())
-							throw new Exception('save failed');
+							throw new CException('save failed');
 						//XML Magic
 					}
 					if($modelForm->Sensors_idSensors_patella != -1)
@@ -133,13 +142,13 @@ class SignalAcquisitionController extends Controller
 						$model->Orthosis_idOrthosis= $modelForm->Orthosis_idOrthosis;
 						$model->Protocols_idProtocols=$modelForm->Protocols_idProtocols;
 						if(!$model->Save())
-							throw new Exception('save failed');
+							throw new CException('save failed');
 						//XML Magic
 					}
 					$transaction->commit();
 					$this->redirect(array('/sessions/view','id'=>$idSession));
 				}
-				catch (Exception $e)
+				catch (CException $e)
 				{
 					//$model->birthdate = date ('d.m.Y', strtotime($model->birthdate));
 					echo $e->getMessage();
@@ -147,6 +156,7 @@ class SignalAcquisitionController extends Controller
 					//XML Magic Rollback
 				}
 			}
+			*/
 		}
 
 		$this->render('create',array(

@@ -124,6 +124,10 @@ class Patients extends CActiveRecord
 		));
 	}
 
+	public function findByMD5Hash($md5hash)
+	{
+		return $this->findByAttributes(array('md5hash'=>$md5hash));
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
