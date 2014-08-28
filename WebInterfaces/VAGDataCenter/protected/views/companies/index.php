@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Companies', 'url'=>array('create')),
+	array('label'=>'Add New Company', 'url'=>array('create')),
 	array('label'=>'Manage Companies', 'url'=>array('admin')),
 );
 ?>

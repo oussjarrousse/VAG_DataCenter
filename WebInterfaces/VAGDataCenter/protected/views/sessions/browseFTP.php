@@ -7,19 +7,46 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
+	array('label'=>'List All Sessions', 'url'=>array('index')),
 	array('label'=>'Import Sessions', 'url'=>array('import')),
 	array('label'=>'Manage Sessions', 'url'=>array('admin')),
 );
 ?>
 <h1>Index of: <?php echo (empty($dir)?'/':$dir); ?> on the the server</h1>
 
+
+<?php if(Yii::app()->user->hasFlash('error.patient.not.fount')):?>
 <div>
-<?php echo ($importable)?'Folder contains xml files, '. CHtml::link('click here to Import the entire session',array(
+	<?php echo Yii::app()->user->getFlash('error.patient.not.fount'); ?>
+	<?php echo CHtml::link('Click here to add the patient:'.$patientMD5Hash.' to the Database first!',array(
+													'patientsSecret/create',
+													'patientMD5Hash'=>$patientMD5Hash
+					));
+	echo '<br></br>';
+	?>
+	<br>
+</div>
+<?php endif;?>
+
+<?php 
+	if(Yii::app()->user->hasFlash('error.save.failed'))
+	{
+		echo '<div class="alert.error.save.failed">';
+		echo Yii::app()->user->getFlash('error.save.failed');
+		echo '<br></br>';
+		echo '</div>';
+	}
+?>
+
+<?php if ($importable): ?>
+<div>
+	<?php echo 'Folder contains xml files, '. CHtml::link('click here to Import the entire session',array(
 													'sessions/importSession',
 													'dir'=>$dir
-												)):'Nothing to Import here';
-?>
+												)); 
+	?>
 </div>
+<?php endif; ?>
 
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(

@@ -62,18 +62,24 @@ class PatientsSecretController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($md5='')
 	{
 		$model=new PatientsSecret;
+		$model->md5=$md5;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		if(isset($_POST['PatientsSecret']))
 		{
 			$model->attributes=$_POST['PatientsSecret'];
-			$model->md5= md5($model->firstname . $model->lastname . date('Ymd',strtotime($model->birthdate)));
-			
+			$string = $model->firstname . $model->lastname . date('Ymd',strtotime($model->birthdate));
+			//echo $string; echo " ";
+			$model->md5= md5($string);
+			//echo $model->md5;
+			//return;
+			//if()
 			//check if the record already exists
-			$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
+			//$patient = Patients::model()->findByAttributes(array('md5hash'=>$model->md5));
+			$patient = Patients::model()->findByMD5Hash($model->md5);
 			if(!empty($patient))
 			{
 				//echo $patient->idPatients;
@@ -83,26 +89,26 @@ class PatientsSecretController extends Controller
 			try
 			{
 				if(!$model->save())
-					throw new Exception('PatientsSecret model save failed');	
+					throw new CException('Sodel save failed.');	
 				$patient = new Patients;
 				$patient->idPatients = $model->idPatientsSecret;
 				$patient->md5hash = $model->md5;
 				$patient->birthdate = $model->birthdate;
 				$patient->gender = $model->gender;
 				if(!$patient->save())
-					throw new Exception('Patients model save failed');
+					throw new CException('Save failed');
 				$transaction->commit();
 				$this->redirect(array('view','id'=>$model->idPatientsSecret));
 			}
-			catch (Exception $e)
+			catch (CException $e)
 			{
 				$transaction->rollback();
-				echo $e->getMessage();
+				Yii::app()->user->setFlash('error.save.failed',$e->getMessage());
 			}
 		} 
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,'md5'=>$md5,
 		));
 	}
 
@@ -125,17 +131,17 @@ class PatientsSecretController extends Controller
 			try
 			{
 				if(!$model->save())
-					throw new Exception('PatientsSecret model save failed');	
+					throw new CException('PatientsSecret model save failed');	
 				$patient = Patients::model()->findByPk($id);
 				$patient->md5hash = $model->md5;
 				$patient->birthdate = $model->birthdate;
 				$patient->gender = $model->gender;
 				if(!$patient->save())
-					throw new Exception('Patients model save failed');
+					throw new CException('Patients model save failed');
 				$transaction->commit();
 				$this->redirect(array('view','id'=>$model->idPatientsSecret));
 			}
-			catch (Exception $e)
+			catch (CException $e)
 			{
 				echo $e->getMessage();
 				$transaction->rollback();
@@ -163,7 +169,7 @@ class PatientsSecretController extends Controller
 			Patients::model()->findByPk($id)->delete();
 			$transaction->commit();
 		}
-		catch(Exception $e)
+		catch(CException $e)
 		{
 			echo $e->getMessage();
 			$transaction->rollback();

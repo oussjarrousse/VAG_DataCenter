@@ -15,4 +15,15 @@ $this->menu=array(
 
 <h1>Create PatientsSecret</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php 
+	if(Yii::app()->user->hasFlash('error.save.failed'))
+	{
+		echo '<div class="alert.error.save.failed">';
+		echo Yii::app()->user->getFlash('error.save.failed');
+		echo '<br></br>';
+		echo '</div>';
+	}
+?>
+	
+
+<?php $this->renderPartial('_form', array('model'=>$model,'md5'=>$md5)); ?>
