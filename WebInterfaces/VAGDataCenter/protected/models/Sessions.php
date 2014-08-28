@@ -37,7 +37,7 @@ class Sessions extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('timestamp, sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
-			array('$sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
+			array('sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
 			//array('timestamp', 'type', 'type'=>'datetime', 'datetimeFormat'=>'dd-MM-yyyy hh:mm'),
 							
 			// The following rule is used by search().
@@ -45,13 +45,14 @@ class Sessions extends CActiveRecord
 			array('idSession, sessionName, timestamp, SystemUsers_idSystemUser, Patients_idPatients', 'safe', 'on'=>'search'),
 		);
 	}
-	
+	/*
  	public function beforeSave() 
  	{
  		if ($this->isNewRecord)
  			$this->timestamp = new CDbExpression('NOW()');
  		return parent::beforeSave();
  	}
+ 	//*/
 	/**
 	 * @return array relational rules.
 	 */
