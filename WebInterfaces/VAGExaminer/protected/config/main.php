@@ -59,8 +59,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAG',
 			'emulatePrepare' => true,
-			'username' => '',
-			'password' => '',
+			'username' => 'DataCenter',
+			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
 			'charset' => 'utf8',
 			// uncomment the following to show log messages on web pages
 			'enableParamLogging' => true,
@@ -68,8 +68,8 @@ return array(
 		'dbSecret'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=VAGPatientsSecret',
 			'emulatePrepare' => true,
-			'username' => '',
-			'password' => '',
+			'username' => 'DataCenter',
+			'password' => '45fb2e0533b1f4d1e80f1504a65738be',
 			'charset' => 'utf8',
 			'class'=> 'CDbConnection',
 			// uncomment the following to show log messages on web pages

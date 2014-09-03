@@ -46,6 +46,8 @@ class SignalAcquisition extends CActiveRecord
 		return array(
 			array('Patients_idPatients, Sessions_idSession, knee, position, Sensors_idSensors, Protocols_idProtocols, SignalConditioners_idSignalConditioners, Orthosis_idOrthosis, samplesRate, bitsPerSample, startTime, filename', 'required'),
 			array('knee, bitsPerSample, samplesRate', 'numerical', 'integerOnly'=>true),
+			array('samplesRate', 'default', 'value'=>16000),
+			array('bitsPerSample', 'default','value'=>24),
 			//0 = Left, 1 = Right
 			array('knee','numerical','min'=>0, 'max'=>1),
 			array('position','numerical','min'=>0, 'max'=>2),
