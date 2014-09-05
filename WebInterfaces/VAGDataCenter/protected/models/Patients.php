@@ -72,6 +72,7 @@ class Patients extends CActiveRecord
 		return array(
 			'mRIDataSets' => array(self::HAS_MANY, 'MRIDataSets', 'Patients_idPatients'),
 			'oNNForms' => array(self::HAS_MANY, 'ONNForm', 'Patients_idPatients'),
+			'diagnosis' => array(self::HAS_MANY, 'Diagnosis', 'Patients_idPatients'),
 			'oxfordKneeScores' => array(self::HAS_MANY, 'OxfordKneeScores', 'Patients_idPatients'),
 			'sessions' => array(self::HAS_MANY, 'Sessions', 'Patients_idPatients'),
 			'signalAcquisitions' => array(self::HAS_MANY, 'SignalAcquisition', 'Patients_idPatients'),
