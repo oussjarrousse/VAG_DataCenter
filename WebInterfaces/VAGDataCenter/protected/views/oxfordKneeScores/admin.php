@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List OxfordKneeScores', 'url'=>array('index')),
-	array('label'=>'Create OxfordKneeScores', 'url'=>array('create')),
+	array('label'=>'List All Oxford Knee Score Forms', 'url'=>array('index')),
+	array('label'=>'Add New Oxford Knee Score Form', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Oxford Knee Scores</h1>
+<h1>Manage Oxford Knee Score Forms</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -46,12 +46,23 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'idPatientsOxfordScores',
-		'Scope',
+		array(
+			'header'=>'Session',
+			'value'=>'$data->sessionsIdSession->sessionName',
+		),
+		array(
+			'header'=>'Patient',
+			'value'=>'$data->patientsIdPatients->md5hash',
+		),
+		array(
+			'name'=>'Scope',
+			'value'=>'$data->Scope',
+		),
+		/*
 		'Q1',
 		'Q2',
 		'Q3',
 		'Q4',
-		/*
 		'Q5',
 		'Q6',
 		'Q7',
@@ -60,8 +71,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'Q10',
 		'Q11',
 		'Q12',
-		'Patients_idPatients',
-		'Sessions_idSession',
 		*/
 		array(
 			'class'=>'CButtonColumn',

@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ONNForm', 'url'=>array('index')),
-	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
+	array('label'=>'List All ONN Forms', 'url'=>array('index')),
+	array('label'=>'Manage ONN Forms', 'url'=>array('admin')),
 );
 ?>
 

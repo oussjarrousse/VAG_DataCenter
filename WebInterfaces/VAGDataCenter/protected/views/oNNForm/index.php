@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create ONNForm', 'url'=>array('create')),
-	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
+	array('label'=>'Add New ONN Form', 'url'=>array('create')),
+	array('label'=>'Manage ONN Forms', 'url'=>array('admin')),
 );
 ?>
 

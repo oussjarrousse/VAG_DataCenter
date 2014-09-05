@@ -38,6 +38,7 @@ class Sessions extends CActiveRecord
 		return array(
 			array('timestamp, sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
 			array('sessionName, SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
+			array('sessionName', 'unique', 'message'=>'This name already exists.'),
 			//array('timestamp', 'type', 'type'=>'datetime', 'datetimeFormat'=>'dd-MM-yyyy hh:mm'),
 							
 			// The following rule is used by search().

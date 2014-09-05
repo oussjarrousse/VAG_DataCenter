@@ -44,26 +44,34 @@ class SessionsController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$idPatient = Yii::app()->session['idPatient'];
-		if(empty($idPatient))
-		{
-			$this->redirect(array('Patients/Search'));
-		}
-		
 		$model=new Sessions;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-		
-		$model->SystemUsers_idSystemUser = Yii::App()->user->id;
-		$model->Patients_idPatients = $idPatient;
-		$model->timestamp = new CDbExpression('NOW()');
-		if($model->save())
+		if(isset($_POST['Sessions']))
 		{
-			Yii::app()->session['idSession'] = $model->idSession;
-			$this->redirect(array('Sessions/View','id'=>$model->idSession));
-			//$this->redirect(array('Sessions/View'));
+			$model->attributes=$_POST['Sessions'];
+			$idPatient = Yii::app()->session['idPatient'];
+			if(empty($idPatient))
+			{
+				$this->redirect(array('Patients/Search'));
+			}
+			$model->attributes=$_POST['Sessions'];
+			// Uncomment the following line if AJAX validation is needed
+			// $this->performAjaxValidation($model);
+			$model->SystemUsers_idSystemUser = Yii::App()->user->id;
+			$model->Patients_idPatients = $idPatient;
+			$model->timestamp = new CDbExpression('NOW()');
+			// Make sure the name is unique... 
+			//if(!Sessions::model()->exists('sessionName = :name', array(":name"=>$model->sessionName)))
+			//{
+			if($model->save())
+			{
+				Yii::app()->session['idSession'] = $model->idSession;
+				$this->redirect(array('Sessions/View','id'=>$model->idSession));
+			}
+			
 		}
+		$this->render('create',array(
+				'model'=>$model,
+		));
 	}
 	/**
 	 * Updates a particular model.
@@ -169,7 +177,7 @@ class SessionsController extends Controller
 			$this->redirect(array('Patients/Search'));
 		}
 		
-		//$renderedPatientView = $this->renderPartial('/patients/view', array('model'=>$patientModel), true);
+		$renderedPatientView = $this->renderPartial('/patients/view', array('model'=>$patientModel), true);
 		
 		$criteria = new CDbCriteria();
 		$criteria->compare('Patients_idPatients',$idPatient);

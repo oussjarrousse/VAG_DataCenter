@@ -66,7 +66,14 @@ class OxfordKneeScores extends CActiveRecord
 			'patientsIdPatients' => array(self::BELONGS_TO, 'Patients', 'Patients_idPatients'),
 		);
 	}
-
+	
+	protected function beforeValidate ()
+	{
+		//make sure the patientID corresponds to the sessionID
+		$this->Patients_idPatients = $this->sessionsIdSession->Patients_idPatients;
+		return parent::beforeValidate ();
+	}
+	
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -87,8 +94,8 @@ class OxfordKneeScores extends CActiveRecord
 			'Q10' => '10. Have you felt that your knee might suddenly \'give way\' or let you down?',
 			'Q11' => '11. Could you do the household shopping on your own?',
 			'Q12' => '12. Could you walk down one flight of stairs?',
-			'Patients_idPatients' => 'Patients Id Patients',
-			'Sessions_idSession' => 'Sessions Id Session',
+			'Patients_idPatients' => 'Patient',
+			'Sessions_idSession' => 'Session',
 		);
 	}
 
@@ -229,6 +236,11 @@ class OxfordKneeScores extends CActiveRecord
 		$this->Q11 +
 		$this->Q12;
 		return $sum;
+	}
+	
+	public function getSessionsOptions()
+	{
+		return CHtml::listData(Sessions::model()->findAll(), 'idSession', 'sessionName');
 	}
 	/**
 	 * Returns the static model of the specified AR class.

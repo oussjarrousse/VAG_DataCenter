@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create OxfordKneeScores', 'url'=>array('create')),
-	array('label'=>'Manage OxfordKneeScores', 'url'=>array('admin')),
+	array('label'=>'Add New Oxford Knee Score Form', 'url'=>array('create')),
+	array('label'=>'Manage Oxford Knee Score Forms', 'url'=>array('admin')),
 );
 ?>
 

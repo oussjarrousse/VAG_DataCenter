@@ -48,11 +48,11 @@ should you have any questions.</p>
 <?php echo CHtml::link('Sessions (Under Construction)',array('Sessions/admin')); ?>
 </p>
 <p>
-<?php echo CHtml::link('ONNForm (Under Construction)',array('ONNForm/admin')); ?>
-</p> 
-<p>
-<?php echo CHtml::link('OxfordKneeScores (Under Construction)',array('OxfordKneeScores/admin')); ?>
+<?php echo CHtml::link('Oxford Knee Score Forms',array('OxfordKneeScores/admin')); ?>
 </p>
+<p>
+<?php echo CHtml::link('ONN Forms',array('ONNForm/admin')); ?>
+</p> 
 <p>
 <?php echo CHtml::link('Signals (Under Construction)',array('SignalAcquisition/admin')); ?>
 </p>

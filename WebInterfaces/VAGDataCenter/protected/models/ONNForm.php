@@ -55,15 +55,18 @@ class ONNForm extends CActiveRecord
 			$this->complaintsDate = strtotime ($this->complaintsDate);
 			$this->complaintsDate = date('d.m.Y', $this->complaintsDate);
 		}
-		parent::afterFind ();
+		return parent::afterFind ();
 	}
 	protected function beforeValidate ()
 	{
 		// convert to storage format
 		$this->complaintsDate = strtotime ($this->complaintsDate);
 		$this->complaintsDate = date ('Y-m-d', $this->complaintsDate);
+		//make sure the patientID corresponds to the sessionID
+		$this->Patients_idPatients = $this->sessionsIdSession->Patients_idPatients;
 		return parent::beforeValidate ();
 	}
+	
 	/**
 	 * @return array relational rules.
 	 */
@@ -84,8 +87,8 @@ class ONNForm extends CActiveRecord
 	{
 		return array(
 			'idONNForm' => 'ONN form ID',
-			'weight' => 'Weight',
-			'height' => 'Height',
+			'weight' => 'Weight (kg)',
+			'height' => 'Height (cm)',
 			'Patients_idPatients' => 'Patients Id Patients',
 			'Sessions_idSession' => 'Sessions Id Session',
 			'complaintsDate' => 'Complaints Date',
@@ -135,6 +138,11 @@ class ONNForm extends CActiveRecord
 		));
 	}
 
+	public function getSessionsOptions()
+	{
+		return CHtml::listData(Sessions::model()->findAll(), 'idSession', 'sessionName');
+	}
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

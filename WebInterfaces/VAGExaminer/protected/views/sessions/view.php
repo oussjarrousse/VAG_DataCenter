@@ -28,7 +28,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		array('name'=>'Session Id', 'value'=>$model->idSession),
+		array('name'=>'Session Name', 'value'=>$model->sessionName),
 		'timestamp',
 		array('name'=>'Examiner', 'value'=>$model->systemUsers->firstname . " " . $model->systemUsers->lastname),
 		array('name'=>'Patient MD5 hash','value'=>$model->patients->md5hash),

@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List OxfordKneeScores', 'url'=>array('index')),
-	array('label'=>'Create OxfordKneeScores', 'url'=>array('create')),
-	array('label'=>'View OxfordKneeScores', 'url'=>array('view', 'id'=>$model->idPatientsOxfordScores)),
-	array('label'=>'Manage OxfordKneeScores', 'url'=>array('admin')),
+	array('label'=>'List All Oxford Knee Score Forms', 'url'=>array('index')),
+	array('label'=>'Add New Oxford Knee Score Form', 'url'=>array('create')),
+	array('label'=>'View All Oxford Knee Score Forms', 'url'=>array('view', 'id'=>$model->idPatientsOxfordScores)),
+	array('label'=>'Manage Oxford Knee Score Forms', 'url'=>array('admin')),
 );
 ?>
 
 <h1>Update OxfordKneeScores <?php echo $model->idPatientsOxfordScores; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'answers'=>$model->answersLabels())); ?>

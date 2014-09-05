@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List OxfordKneeScores', 'url'=>array('index')),
-	array('label'=>'Manage OxfordKneeScores', 'url'=>array('admin')),
+	array('label'=>'List All Oxford Knee Score Forms', 'url'=>array('index')),
+	array('label'=>'Manage Oxford Knee Score Forms', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create OxfordKneeScores</h1>
+<h1>New Oxford Knee Score Form</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'answers'=>$model->answersLabels())); ?>

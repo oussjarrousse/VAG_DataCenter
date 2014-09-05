@@ -70,6 +70,11 @@ class OxfordKneeScoresController extends Controller
 		if(isset($_POST['OxfordKneeScores']))
 		{
 			$model->attributes=$_POST['OxfordKneeScores'];
+			
+			//Get the Patient ID from the SessionID
+			//Moved to beforeValidate() function
+			//$model->Patients_idPatients = $model->sessionsIdSession->Patients_idPatients;
+			//var_dump($model);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idPatientsOxfordScores));
 		}
@@ -94,6 +99,8 @@ class OxfordKneeScoresController extends Controller
 		if(isset($_POST['OxfordKneeScores']))
 		{
 			$model->attributes=$_POST['OxfordKneeScores'];
+			//Moved to model beforeSave()
+			//$model->Patients_idPatients = $model->sessionsIdSession->Patients_idPatients;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idPatientsOxfordScores));
 		}

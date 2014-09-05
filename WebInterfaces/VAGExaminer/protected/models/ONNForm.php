@@ -62,6 +62,8 @@ class ONNForm extends CActiveRecord
 		// convert to storage format
 		$this->complaintsDate = strtotime ($this->complaintsDate);
 		$this->complaintsDate = date ('Y-m-d', $this->complaintsDate);
+		//make sure the patientID corresponds to the sessionID
+		$this->Patients_idPatients = $this->sessionsIdSession->Patients_idPatients;
 		return parent::beforeValidate ();
 	}
 	/**
@@ -84,8 +86,8 @@ class ONNForm extends CActiveRecord
 	{
 		return array(
 			'idONNForm' => 'ONN form ID',
-			'weight' => 'Weight',
-			'height' => 'Height',
+			'weight' => 'Weight (kg)',
+			'height' => 'Height (cm)',
 			'Patients_idPatients' => 'Patients Id Patients',
 			'Sessions_idSession' => 'Sessions Id Session',
 			'complaintsDate' => 'Complaints Date',

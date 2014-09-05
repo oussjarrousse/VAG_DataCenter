@@ -9,10 +9,24 @@
 	<?php echo CHtml::link(CHtml::encode($data->idPatientsOxfordScores), array('view', 'id'=>$data->idPatientsOxfordScores)); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Sessions_idSession')); ?>:</b>
+	<?php echo CHtml::encode($data->sessionsIdSession->sessionName); ?>
+	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Patients_idPatients')); ?>:</b>
+	<?php echo CHtml::encode($data->patientsIdPatients->md5hash); ?>
+	<br />
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Scope')); ?>:</b>
 	<?php echo CHtml::encode($data->Scope); ?>
 	<br />
-
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Score')); ?>:</b>
+	<?php echo CHtml::encode($data->Score()); ?>
+	<br />
+		
+	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Q1')); ?>:</b>
 	<?php echo CHtml::encode($data->Q1); ?>
 	<br />
@@ -33,7 +47,7 @@
 	<?php echo CHtml::encode($data->Q5); ?>
 	<br />
 
-	<?php /*
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Q6')); ?>:</b>
 	<?php echo CHtml::encode($data->Q6); ?>
 	<br />
@@ -62,13 +76,6 @@
 	<?php echo CHtml::encode($data->Q12); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Patients_idPatients')); ?>:</b>
-	<?php echo CHtml::encode($data->Patients_idPatients); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Sessions_idSession')); ?>:</b>
-	<?php echo CHtml::encode($data->Sessions_idSession); ?>
-	<br />
 
 	*/ ?>
 

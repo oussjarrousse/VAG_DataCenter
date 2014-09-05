@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ONNForm', 'url'=>array('index')),
-	array('label'=>'Create ONNForm', 'url'=>array('create')),
-	array('label'=>'Update ONNForm', 'url'=>array('update', 'id'=>$model->idONNForm)),
-	array('label'=>'Delete ONNForm', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idONNForm),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ONNForm', 'url'=>array('admin')),
+	array('label'=>'List All ONN Forms', 'url'=>array('index')),
+	array('label'=>'Add New ONN Form', 'url'=>array('create')),
+	array('label'=>'Update This ONN Form', 'url'=>array('update', 'id'=>$model->idONNForm)),
+	array('label'=>'Delete This ONN Form', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idONNForm),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage ONN Forms', 'url'=>array('admin')),
 );
 ?>
 
@@ -22,10 +22,16 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'idONNForm',
+		array(
+			'name'=>'Session',
+			'value'=>$model->sessionsIdSession->sessionName,
+		),		
+		array(
+			'name'=>'Patient',
+			'value'=>$model->patientsIdPatients->md5hash,
+		),
 		'weight',
 		'height',
-		'Patients_idPatients',
-		'Sessions_idSession',
 		'complaintsDate',
 		'complaintsCause',
 		'natureOfWork',

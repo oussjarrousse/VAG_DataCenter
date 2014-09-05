@@ -175,7 +175,7 @@ class OxfordKneeScores extends CActiveRecord
 		);
 	}
 	
-	public function Score()
+	public function getScore()
 	{
 		$sum = $this->Q1 +
 				$this->Q2 +
@@ -231,6 +231,12 @@ class OxfordKneeScores extends CActiveRecord
 		));
 	}
 
+	protected function beforeValidate ()
+	{
+		//make sure the patientID corresponds to the sessionID
+		$this->Patients_idPatients = $this->sessionsIdSession->Patients_idPatients;
+		return parent::beforeValidate ();
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

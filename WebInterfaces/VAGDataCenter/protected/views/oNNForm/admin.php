@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ONNForm', 'url'=>array('index')),
-	array('label'=>'Create ONNForm', 'url'=>array('create')),
+	array('label'=>'List All ONN Forms', 'url'=>array('index')),
+	array('label'=>'Add New ONN Form', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Onnforms</h1>
+<h1>Manage ONN Forms</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -48,8 +48,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'idONNForm',
 		'weight',
 		'height',
-		'Patients_idPatients',
-		'Sessions_idSession',
+		array(
+			'header'=>'Session',
+			'value'=>'$data->sessionsIdSession->sessionName',
+		),	
+		array(
+			'header'=>'Patient',
+			'value'=>'$data->patientsIdPatients->md5hash',
+		),
 		'complaintsDate',
 		/*
 		'complaintsCause',

@@ -54,6 +54,7 @@ class ONNFormController extends Controller
 	 */
 	public function actionCreate()
 	{
+		//Rethink this... no need to pass idPatient as it is part of the session model that can be obtained with idSession
 		$idPatient = Yii::app()->session['idPatient'];
 		$idSession = Yii::app()->session['idSession'];
 		if(empty($idPatient) || empty($idSession))

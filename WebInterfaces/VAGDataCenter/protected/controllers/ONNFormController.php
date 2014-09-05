@@ -70,6 +70,8 @@ class ONNFormController extends Controller
 		if(isset($_POST['ONNForm']))
 		{
 			$model->attributes=$_POST['ONNForm'];
+			//Move this to the beforeSave event of the model
+			//$model->Patients_idPatients = $model->sessionsIdSession->Patients_idPatients;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idONNForm));
 		}
@@ -94,6 +96,8 @@ class ONNFormController extends Controller
 		if(isset($_POST['ONNForm']))
 		{
 			$model->attributes=$_POST['ONNForm'];
+			//Moved to beforeValidate()
+			//$model->Patients_idPatients = $model->sessionsIdSession->Patients_idPatients;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idONNForm));
 		}

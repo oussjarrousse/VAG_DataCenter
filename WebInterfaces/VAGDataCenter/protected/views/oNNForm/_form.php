@@ -20,35 +20,44 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'weight'); ?>
-		<?php echo $form->textField($model,'weight',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'weight'); ?>
+		<?php echo $form->labelEx($model,'Sessions_idSession'); ?>
+		<?php echo $form->dropDownList($model, 'Sessions_idSession', $model->getSessionsOptions()); ?>
+		<?php echo $form->error($model,'Sessions_idSession'); ?>
 	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'height'); ?>
 		<?php echo $form->textField($model,'height',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'height'); ?>
 	</div>
-
+	
 	<div class="row">
-		<?php echo $form->labelEx($model,'Patients_idPatients'); ?>
-		<?php echo $form->textField($model,'Patients_idPatients',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'Patients_idPatients'); ?>
+		<?php echo $form->labelEx($model,'weight'); ?>
+		<?php echo $form->textField($model,'weight',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'weight'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'Sessions_idSession'); ?>
-		<?php echo $form->textField($model,'Sessions_idSession',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'Sessions_idSession'); ?>
-	</div>
-
-	<div class="row">
+		<div class="row">
 		<?php echo $form->labelEx($model,'complaintsDate'); ?>
-		<?php echo $form->textField($model,'complaintsDate'); ?>
+		<?php 
+			$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+				'name'=>'datepicker-ONNFormForm',
+				//'flat'=>true,
+				'attribute'=>'complaintsDate',
+				'model' => $model,
+				'options'=>array(
+					'dateFormat'=>'dd.mm.yy',
+					'maxDate'=>'new Date()', // Today
+					'minDate'=>'01.01.1900',
+					'showAnim'=>'blind',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+					'changeYear'=>true,
+					'yearRange'=>'1900:'.date("Y"),
+				))
+			);
+		?>
 		<?php echo $form->error($model,'complaintsDate'); ?>
 	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'complaintsCause'); ?>
 		<?php echo $form->textField($model,'complaintsCause',array('size'=>45,'maxlength'=>45)); ?>
