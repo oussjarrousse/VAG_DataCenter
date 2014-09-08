@@ -27,7 +27,7 @@ should you have any questions.</p>
 <?php echo CHtml::link('Patients Secret',array('PatientsSecret/admin')); ?>
 </p> 
 <p>
-<?php echo CHtml::link('Patients',array('Patients/index')); ?>
+<?php echo CHtml::link('Patients ---- must present more in patients view',array('Patients/index')); ?>
 </p> 
 <p>
 <?php echo CHtml::link('Companies',array('Companies/admin')); ?>
@@ -45,7 +45,7 @@ should you have any questions.</p>
 <?php echo CHtml::link('Protocols',array('Protocols/admin')); ?>
 </p> 
 <p>
-<?php echo CHtml::link('Sessions (Under Construction)',array('Sessions/admin')); ?>
+<?php echo CHtml::link('Sessions ---- must present more about patient and signals',array('Sessions/admin')); ?>
 </p>
 <p>
 <?php echo CHtml::link('Oxford Knee Score Forms',array('OxfordKneeScores/admin')); ?>
@@ -54,5 +54,11 @@ should you have any questions.</p>
 <?php echo CHtml::link('ONN Forms',array('ONNForm/admin')); ?>
 </p> 
 <p>
-<?php echo CHtml::link('Signals (Under Construction)',array('SignalAcquisition/admin')); ?>
+<?php echo CHtml::link('Signals ---- view still inhumane',array('SignalAcquisition/admin')); ?>
+</p>
+<p>
+<?php echo CHtml::link('Diagnosis ---- delete is not working - view still inhumane',array('Diagnosis/admin')); ?>
+</p>
+<p>
+<?php echo CHtml::link('Possible Diagnosis',array('PossibleDiagnosis/admin')); ?>
 </p>

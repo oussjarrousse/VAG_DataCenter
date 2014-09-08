@@ -8,10 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Diagnosis', 'url'=>array('index')),
-	array('label'=>'Create Diagnosis', 'url'=>array('create')),
-	array('label'=>'Update Diagnosis', 'url'=>array('update', 'id'=>$model->idDiagnosis)),
-	array('label'=>'Delete Diagnosis', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idDiagnosis),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'List All Diagnosis', 'url'=>array('index')),
+	array('label'=>'Add New Diagnosis', 'url'=>array('create')),
+	array('label'=>'Update This Diagnosis', 'url'=>array('update', 'id'=>$model->idDiagnosis)),
+	array('label'=>'Delete This Diagnosis', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idDiagnosis),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Diagnosis', 'url'=>array('admin')),
 );
 ?>
@@ -23,6 +23,19 @@ $this->menu=array(
 	'attributes'=>array(
 		'idDiagnosis',
 		'date',
-		'Patients_idPatients',
+		array(
+			'name'=>'Patient',
+			'value'=>$model->patientsIdPatients->md5hash,
+		),
+		array(
+			'name'=>'knee',
+			'value'=>$model->knee?"Right":"Left",
+		),
+		array(
+			'name'=>'status',
+			'value'=>$model->status?"Confirmed":"Unconfirmed",
+		),
+		'notes',
+		'authority',
 	),
 )); ?>

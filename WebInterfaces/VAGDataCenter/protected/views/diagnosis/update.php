@@ -9,9 +9,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Diagnosis', 'url'=>array('index')),
-	array('label'=>'Create Diagnosis', 'url'=>array('create')),
-	array('label'=>'View Diagnosis', 'url'=>array('view', 'id'=>$model->idDiagnosis)),
+	array('label'=>'List All Diagnosis', 'url'=>array('index')),
+	array('label'=>'Add This Diagnosis', 'url'=>array('create')),
+	array('label'=>'View This Diagnosis', 'url'=>array('view', 'id'=>$model->idDiagnosis)),
 	array('label'=>'Manage Diagnosis', 'url'=>array('admin')),
 );
 ?>

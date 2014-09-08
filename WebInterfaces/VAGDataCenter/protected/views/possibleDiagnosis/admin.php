@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PossibleDiagnosis', 'url'=>array('index')),
-	array('label'=>'Create PossibleDiagnosis', 'url'=>array('create')),
+	array('label'=>'List All Possible Diagnosis', 'url'=>array('index')),
+	array('label'=>'Add Possible Diagnosis', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

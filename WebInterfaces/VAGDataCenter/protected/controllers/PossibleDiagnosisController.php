@@ -27,12 +27,8 @@ class PossibleDiagnosisController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'view', 'index'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -122,10 +118,21 @@ class PossibleDiagnosisController extends Controller
 	 */
 	public function actionIndex()
 	{
+		//*
 		$dataProvider=new CActiveDataProvider('PossibleDiagnosis');
+		$dataProvider->pagination = false;		
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		/*
+		$model=new PossibleDiagnosis('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['PossibleDiagnosis']))
+			$model->attributes=$_GET['PossibleDiagnosis'];
+		$this->render('index',array(
+			'model'=>$model,
+		));
+		//*/
 	}
 
 	/**

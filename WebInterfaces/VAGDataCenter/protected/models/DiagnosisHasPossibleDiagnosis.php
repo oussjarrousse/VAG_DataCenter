@@ -1,27 +1,20 @@
 <?php
 
 /**
- * This is the model class for table "PossibleDiagnosis".
+ * This is the model class for table "Diagnosis_has_PossibleDiagnosis".
  *
- * The followings are the available columns in table 'PossibleDiagnosis':
- * @property integer $idPossibleDiagnosis
- * @property string $Code
- * @property string $Letter
- * @property string $Arabic
- * @property string $Roman
- * @property string $Location
- *
- * The followings are the available model relations:
- * @property Diagnosis[] $diagnosises
+ * The followings are the available columns in table 'Diagnosis_has_PossibleDiagnosis':
+ * @property integer $Diagnosis_idDiagnosis
+ * @property integer $PossibleDiagnosis_idPossibleDiagnosis
  */
-class PossibleDiagnosis extends CActiveRecord
+class DiagnosisHasPossibleDiagnosis extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'PossibleDiagnosis';
+		return 'Diagnosis_has_PossibleDiagnosis';
 	}
 
 	/**
@@ -32,17 +25,11 @@ class PossibleDiagnosis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Code, Letter, Arabic', 'required'),
-			array('Code', 'length', 'max'=>10),
-			array('Letter', 'length', 'max'=>1),
-			array('Letter', 'in', 'range'=>array('A','B','C','D')),
-			array('Arabic', 'numerical', 'min'=>1, 'integerOnly'=>true),
-			array('Roman, Location', 'length', 'max'=>4),
-			array('Roman', 'in', 'range'=>array('I','II','III','IV','V','X')),
-			array('Location','in', 'range'=>array('F','T')),
+			array('Diagnosis_idDiagnosis, PossibleDiagnosis_idPossibleDiagnosis', 'required'),
+			array('Diagnosis_idDiagnosis, PossibleDiagnosis_idPossibleDiagnosis', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idPossibleDiagnosis, Code, Letter, Arabic, Roman, Location', 'safe', 'on'=>'search'),
+			array('Diagnosis_idDiagnosis, PossibleDiagnosis_idPossibleDiagnosis', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +41,6 @@ class PossibleDiagnosis extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'diagnosises' => array(self::MANY_MANY, 'Diagnosis', 'Diagnosis_has_PossibleDiagnosis(PossibleDiagnosis_idPossibleDiagnosis, Diagnosis_idDiagnosis)'),
 		);
 	}
 
@@ -64,12 +50,8 @@ class PossibleDiagnosis extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idPossibleDiagnosis' => 'Id Possible Diagnosis',
-			'Code' => 'Code',
-			'Letter' => 'Letter',
-			'Arabic' => 'Arabic',
-			'Roman' => 'Roman',
-			'Location' => 'Location',
+			'Diagnosis_idDiagnosis' => 'Diagnosis Id Diagnosis',
+			'PossibleDiagnosis_idPossibleDiagnosis' => 'Possible Diagnosis Id Possible Diagnosis',
 		);
 	}
 
@@ -91,28 +73,19 @@ class PossibleDiagnosis extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('idPossibleDiagnosis',$this->idPossibleDiagnosis);
-		$criteria->compare('Code',$this->Code,true);
-		$criteria->compare('Letter',$this->Letter,true);
-		$criteria->compare('Arabic',$this->Arabic,true);
-		$criteria->compare('Roman',$this->Roman,true);
-		$criteria->compare('Location',$this->Location,true);
+		$criteria->compare('Diagnosis_idDiagnosis',$this->Diagnosis_idDiagnosis);
+		$criteria->compare('PossibleDiagnosis_idPossibleDiagnosis',$this->PossibleDiagnosis_idPossibleDiagnosis);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
-	
-	public static function getPossibleDiagnosis()
-	{
-		return PossibleDiagnosis::find()->select(['idPossibleDiagnosis', 'Code'])->all();
-	} 
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return PossibleDiagnosis the static model class
+	 * @return DiagnosisHasPossibleDiagnosis the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

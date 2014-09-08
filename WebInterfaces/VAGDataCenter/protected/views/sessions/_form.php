@@ -45,7 +45,6 @@
 			);
 		//*/
 		?>
-		<?php echo $form->textField($model,'timestamp'); ?>
 		<?php echo $form->error($model,'timestamp'); ?>
 	</div>
 

@@ -25,5 +25,9 @@ $this->menu=array(
 				'name' => 'gender',
 				'value' => '$data->genderLabel',
 		),
+		array(
+			'class'=>'CButtonColumn',
+			'template'=>'{view}',
+		),
 	),
 )); ?>

@@ -18,7 +18,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Patients #<?php echo $model->idPatients; ?></h1>
+<h1>View Patients: <?php echo $model->md5hash; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

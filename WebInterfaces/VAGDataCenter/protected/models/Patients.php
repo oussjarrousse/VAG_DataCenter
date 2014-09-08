@@ -138,4 +138,5 @@ class Patients extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
 }

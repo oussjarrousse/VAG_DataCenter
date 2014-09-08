@@ -7,14 +7,27 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create PossibleDiagnosis', 'url'=>array('create')),
-	array('label'=>'Manage PossibleDiagnosis', 'url'=>array('admin')),
+	array('label'=>'Add New Possible Diagnosis', 'url'=>array('create')),
+	array('label'=>'Manage Possible Diagnosis', 'url'=>array('admin')),
 );
 ?>
 
 <h1>Possible Diagnosises</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'possible-diagnosis-grid',
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+	//'filter'=>$dataProvider,
+	'columns'=>array(
+		'idPossibleDiagnosis',
+		'Code',
+		'Letter',
+		'Arabic',
+		'Roman',
+		'Location',
+		array(
+			'class'=>'CButtonColumn',
+			'template'=>'{view}',
+		),
+	),
 )); ?>

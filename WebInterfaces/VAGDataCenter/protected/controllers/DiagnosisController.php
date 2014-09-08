@@ -66,14 +66,35 @@ class DiagnosisController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$model->SystemUsers_idSystemUser = Yii::app()->user->id;
+		//$model->
 		if(isset($_POST['Diagnosis']))
 		{
 			$model->attributes=$_POST['Diagnosis'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idDiagnosis));
+			$model->selectedPossibleDiagnosis = $_POST['Diagnosis']['selectedPossibleDiagnosis'];
+			try
+			{
+				if($model->save())
+				{
+					foreach($model->selectedPossibleDiagnosis as $idPossibleDiagnosis)
+					{
+						$m = new DiagnosisHasPossibleDiagnosis;
+						$m->Diagnosis_idDiagnosis = $model->idDiagnosis;
+						$m->PossibleDiagnosis_idPossibleDiagnosis = $idPossibleDiagnosis;
+						if(!$m->save())
+						{
+							throw new CException('Many to Many model save failed!');
+						}
+					}
+					$this->redirect(array('view','id'=>$model->idDiagnosis));
+				}
+			}
+			catch(CException $e)
+			{
+				Yii::app()->user->setFlash('error.save.failed',$e->getMessage());
+				$transaction->rollback();
+			}
 		}
-
 		$this->render('create',array(
 			'model'=>$model,
 		));

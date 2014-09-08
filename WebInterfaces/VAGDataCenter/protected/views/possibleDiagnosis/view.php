@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List PossibleDiagnosis', 'url'=>array('index')),
-	array('label'=>'Create PossibleDiagnosis', 'url'=>array('create')),
-	array('label'=>'Update PossibleDiagnosis', 'url'=>array('update', 'id'=>$model->idPossibleDiagnosis)),
-	array('label'=>'Delete PossibleDiagnosis', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idPossibleDiagnosis),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage PossibleDiagnosis', 'url'=>array('admin')),
+	array('label'=>'List All Possible Diagnosis', 'url'=>array('index')),
+	array('label'=>'Add New Possible Diagnosis', 'url'=>array('create')),
+	array('label'=>'Update This Possible Diagnosis', 'url'=>array('update', 'id'=>$model->idPossibleDiagnosis)),
+	array('label'=>'Delete This Possible Diagnosis', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idPossibleDiagnosis),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage Possible Diagnosis', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View PossibleDiagnosis #<?php echo $model->idPossibleDiagnosis; ?></h1>
+<h1>View Possible Diagnosis:  <?php echo $model->Code; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

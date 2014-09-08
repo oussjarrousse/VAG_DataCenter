@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Diagnosis', 'url'=>array('index')),
-	array('label'=>'Create Diagnosis', 'url'=>array('create')),
+	array('label'=>'List All Diagnosis', 'url'=>array('index')),
+	array('label'=>'Add New Diagnosis', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -47,7 +47,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'idDiagnosis',
 		'date',
+		'knee',
+		'notes',
+		'authority',
+		'status',
+		/*
+		'SystemUsers_idSystemUser',
 		'Patients_idPatients',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

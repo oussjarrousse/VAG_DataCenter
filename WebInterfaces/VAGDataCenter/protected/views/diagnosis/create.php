@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Diagnosis', 'url'=>array('index')),
+	array('label'=>'List All Diagnosis', 'url'=>array('index')),
 	array('label'=>'Manage Diagnosis', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Diagnosis</h1>
+<h1>Add New Diagnosis</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

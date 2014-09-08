@@ -6,14 +6,22 @@
  * The followings are the available columns in table 'Diagnosis':
  * @property integer $idDiagnosis
  * @property string $date
+ * @property integer $knee
+ * @property string $notes
+ * @property string $authority
+ * @property integer $status
+ * @property string $SystemUsers_idSystemUser
  * @property string $Patients_idPatients
  *
  * The followings are the available model relations:
  * @property Patients $patientsIdPatients
+ * @property SystemUsers $systemUsersIdSystemUser
+ * @property Imagine[] $imagines
  * @property PossibleDiagnosis[] $possibleDiagnosises
  */
 class Diagnosis extends CActiveRecord
 {
+	public $selectedPossibleDiagnosis;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -30,11 +38,13 @@ class Diagnosis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('date, Patients_idPatients', 'required'),
-			array('Patients_idPatients', 'length', 'max'=>10),
+			array('date, knee, authority, status, SystemUsers_idSystemUser, Patients_idPatients', 'required'),
+			array('knee, status', 'numerical', 'integerOnly'=>true),
+			array('notes, authority', 'length', 'max'=>45),
+			array('SystemUsers_idSystemUser, Patients_idPatients', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idDiagnosis, date, Patients_idPatients', 'safe', 'on'=>'search'),
+			array('idDiagnosis, date, knee, notes, authority, status, SystemUsers_idSystemUser, Patients_idPatients', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,6 +57,8 @@ class Diagnosis extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'patientsIdPatients' => array(self::BELONGS_TO, 'Patients', 'Patients_idPatients'),
+			'systemUsersIdSystemUser' => array(self::BELONGS_TO, 'SystemUsers', 'SystemUsers_idSystemUser'),
+			'imagines' => array(self::MANY_MANY, 'Imagine', 'Diagnosis_has_Imagine(Diagnosis_idDiagnosis, Imagine_idImagine)'),
 			'possibleDiagnosises' => array(self::MANY_MANY, 'PossibleDiagnosis', 'Diagnosis_has_PossibleDiagnosis(Diagnosis_idDiagnosis, PossibleDiagnosis_idPossibleDiagnosis)'),
 		);
 	}
@@ -59,6 +71,11 @@ class Diagnosis extends CActiveRecord
 		return array(
 			'idDiagnosis' => 'Id Diagnosis',
 			'date' => 'Date',
+			'knee' => 'Knee',
+			'notes' => 'Notes',
+			'authority' => 'Authority',
+			'status' => 'Status',
+			'SystemUsers_idSystemUser' => 'System Users Id System User',
 			'Patients_idPatients' => 'Patients Id Patients',
 		);
 	}
@@ -83,6 +100,11 @@ class Diagnosis extends CActiveRecord
 
 		$criteria->compare('idDiagnosis',$this->idDiagnosis);
 		$criteria->compare('date',$this->date,true);
+		$criteria->compare('knee',$this->knee);
+		$criteria->compare('notes',$this->notes,true);
+		$criteria->compare('authority',$this->authority,true);
+		$criteria->compare('status',$this->status);
+		$criteria->compare('SystemUsers_idSystemUser',$this->SystemUsers_idSystemUser,true);
 		$criteria->compare('Patients_idPatients',$this->Patients_idPatients,true);
 
 		return new CActiveDataProvider($this, array(
@@ -99,5 +121,10 @@ class Diagnosis extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	public function getPatientsOptions()
+	{
+		return CHtml::listData(Patients::model()->findAll(), 'idPatients', 'md5hash');
 	}
 }

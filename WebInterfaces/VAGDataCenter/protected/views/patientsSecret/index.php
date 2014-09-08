@@ -21,5 +21,16 @@ $this->breadcrumbs=array(
 )); */
 $this->widget('zii.widgets..grid.CGridView', array(
 		'dataProvider'=>$dataProvider,
+		'columns'=>array(
+			'idPatientsSecret',
+			'firstname',
+			'lasttname',
+			'birthdate',
+			'md5',
+			array(
+				'class'=>'CButtonColumn',
+				'template'=> '{view}'
+			),
+		),
 ));
 ?>

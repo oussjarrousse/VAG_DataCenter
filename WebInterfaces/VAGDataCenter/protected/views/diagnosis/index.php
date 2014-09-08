@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Diagnosis', 'url'=>array('create')),
+	array('label'=>'Add New Diagnosis', 'url'=>array('create')),
 	array('label'=>'Manage Diagnosis', 'url'=>array('admin')),
 );
 ?>
