@@ -57,7 +57,7 @@ should you have any questions.</p>
 <?php echo CHtml::link('Signals ---- view still inhumane',array('SignalAcquisition/admin')); ?>
 </p>
 <p>
-<?php echo CHtml::link('Diagnosis ---- delete is not working - view still inhumane',array('Diagnosis/admin')); ?>
+<?php echo CHtml::link('Diagnosis ---- view still inhumane',array('Diagnosis/admin')); ?>
 </p>
 <p>
 <?php echo CHtml::link('Possible Diagnosis',array('PossibleDiagnosis/admin')); ?>

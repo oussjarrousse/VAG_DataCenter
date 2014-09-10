@@ -111,7 +111,18 @@ class Diagnosis extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-
+	
+	public function beforeDelete()
+	{
+		//Get all electioncommittees that has this->idElectionCommittees and delete all of them
+		try
+		{
+			DiagnosisHasPossibleDiagnosis::model()->deleteAllByAttributes(array('Diagnosis_idDiagnosis'=>$this->idDiagnosis));
+		}
+		catch(CException $e){echo $e->getMessage();}
+		return parent::beforeDelete();
+	}
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
